@@ -9,11 +9,9 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import theme from "../atoms/theme";
+import { ThemeProvider } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
-    headerNavigation: {
-        backgroundColor: theme.palette.primary.main,
-    },
+const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
     },
@@ -102,8 +100,9 @@ export default function Navigation({username}) {
     );
 
     return (
+        <ThemeProvider theme={theme}>
         <div className={classes.grow}>
-            <AppBar position="static" className={classes.headerNavigation}>
+            <AppBar position="static">
                 <Toolbar>
                     <Typography className={classes.title} variant="h6" noWrap>
                         Kalkulator żywności
@@ -141,5 +140,6 @@ export default function Navigation({username}) {
             </AppBar>
             {renderMobileMenu}
         </div>
+        </ThemeProvider>
     );
 }
