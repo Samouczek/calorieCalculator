@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import theme from "../atoms/theme";
@@ -43,17 +42,12 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function Navigation() {
+export default function Navigation({username}) {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
 
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
@@ -94,15 +88,15 @@ export default function Navigation() {
             </MenuItem>
 
             <MenuItem>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
+                <Button color={'inherit'}
+                        className={classes.menuButton}
                 >
-                    <AccountCircle />
-                </IconButton>
-                <p>ZALOGUJ</p>
+                    <i className="material-icons"
+                    >
+                        account_circle
+                    </i>
+                    {username ? username: 'Zaloguj'}
+                </Button>
             </MenuItem>
         </Menu>
     );
@@ -121,17 +115,16 @@ export default function Navigation() {
                         <Button color="inherit" className={classes.menuButton}>Pomiar ciała</Button>
                         <Button color="inherit" className={classes.menuButton}>Produkty</Button>
                         <Button color="inherit" className={classes.menuButton}>Jadłospis</Button>
-                        <Button color="inherit" className={classes.menuButton}>Zaloguj</Button>
-                        <IconButton
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
+                        <Button color={'inherit'}
+                                className={classes.menuButton}
                         >
-                            <AccountCircle />
-                        </IconButton>
+                            <i className="material-icons profile_icon"
+                            >
+                                account_circle
+                            </i>
+                            {username ? username: 'Zaloguj'}
+                        </Button>
+
                     </div>
                     <div className={classes.sectionMobile}>
                         <IconButton

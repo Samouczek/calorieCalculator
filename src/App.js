@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-          <Navigation/>
+          <Navigation username={"Kasia"}/>
         <Switch>
           <Route exact path="/" component={Home} />
           {/*<Route exact path="/contact" component={Contact} />*/}
