@@ -9,26 +9,24 @@ import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
+import theme from "../atoms/theme";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     headerNavigation: {
-        backgroundColor: '#00bcd4',
+        backgroundColor: theme.palette.primary.main,
     },
     grow: {
         flexGrow: 1,
     },
     menuButton: {
         marginRight: theme.spacing(2),
+
     },
     title: {
         display: 'none',
         [theme.breakpoints.up('xs')]: {
             display: 'block',
         },
-    },
-
-    inputRoot: {
-        color: 'inherit',
     },
 
     sectionDesktop: {
@@ -123,7 +121,7 @@ export default function Navigation() {
                         <Button color="inherit" className={classes.menuButton}>Pomiar ciała</Button>
                         <Button color="inherit" className={classes.menuButton}>Produkty</Button>
                         <Button color="inherit" className={classes.menuButton}>Jadłospis</Button>
-                        <Button color="inherit" className={classes.menuButton}>Login</Button>
+                        <Button color="inherit" className={classes.menuButton}>Zaloguj</Button>
                         <IconButton
                             edge="end"
                             aria-label="account of current user"
