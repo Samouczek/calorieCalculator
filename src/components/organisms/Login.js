@@ -14,10 +14,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Copyright from "./Copyright";
 import theme from "../atoms/theme";
-import {  ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     paper: {
         marginTop: theme.spacing(8),
         display: 'flex',
@@ -32,8 +32,11 @@ const useStyles = makeStyles((theme) => ({
         width: '100%', // Fix IE 11 issue.
         marginTop: theme.spacing(1),
     },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
+    submitLog: {
+        margin: theme.spacing(3, 0, 1),
+    },
+    submitCancel: {
+        margin: theme.spacing(1, 0, 2),
     },
 }));
 
@@ -68,22 +71,20 @@ function SignIn() {
                         fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.submit}
+                        className={classes.submitLog}
                     >
                         Zaloguj
                     </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
-                        </Grid>
-                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submitCancel}
+                    >
+                        Anuluj
+                    </Button>
+
                 </form>
             </div>
             <Box mt={8}>
