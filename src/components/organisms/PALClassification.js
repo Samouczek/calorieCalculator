@@ -12,9 +12,11 @@ import theme from "../atoms/theme";
 import {ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
+    root: {
+        margin: theme.spacing(1),
+    },
     table: {
         minWidth: 300,
-
     },
 });
 const StyledTableCell = withStyles((theme) => ({
