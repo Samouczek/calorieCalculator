@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import InfoPPM from "../atoms/InfoPPM";
 import InfoCPM from "../atoms/InfoCPM";
 import CPMForm from "../organisms/CpmForm";
+import Copyright from "../organisms/Copyright";
 
 export default function Profile(){
     return  <Container component="main" maxWidth="lg">
@@ -26,6 +27,7 @@ export default function Profile(){
                 </Grid>
             </Grid>
         <CPMForm/>
+        <Copyright/>
     </Container>
 
 }
