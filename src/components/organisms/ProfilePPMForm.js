@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         display: 'flex',
         justifyContent: 'flex-end',
-        marginTop: theme.spacing(3),
-        marginLeft: theme.spacing(1),
+        flexDirection:"row-reverse",
     },
 
 }));
@@ -32,7 +31,6 @@ const sex = [
         label: 'mężczyzna',
     }
 ];
-
 
 export default function ProfilePPMForm() {
     const classes = useStyles();
@@ -100,13 +98,16 @@ export default function ProfilePPMForm() {
                                     autoComplete="given-age"
                                 />
                             </Grid>
+                            <Grid item  xs={12} sm={4} md={3}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.button}
+                                > oblicz PPM
+                                </Button>
+                            </Grid>
+
                         </Grid>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                        > oblicz PPM
-                        </Button>
                         </div>
                 </Container>
                 </ThemeProvider>

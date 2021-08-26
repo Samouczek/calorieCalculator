@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         marginBottom: theme.spacing(1),
         marginTop: theme.spacing(1),
         [theme.breakpoints.up('md')]: {
+            minHeight: 470,
+        },
+        [theme.breakpoints.up('lg')]: {
             minHeight: 500,
         },
     },
