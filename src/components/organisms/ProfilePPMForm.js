@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
 import { Input, InputLabel, MenuItem, Select} from "@material-ui/core";
-import theme from "./theme";
+import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +31,7 @@ const sex = [
 ];
 
 
-export default function ProfileForm() {
+export default function ProfilePPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
 

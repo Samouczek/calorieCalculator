@@ -1,6 +1,11 @@
 import React from "react";
-import ProfileForm from "../atoms/ProfileForm";
+import ProfilePPMForm from "../organisms/ProfilePPMForm";
+import PALClassification from "../atoms/PALClassification";
 
 export default function Profile(){
-    return <ProfileForm/>
+    return <>
+        <ProfilePPMForm/>
+        <PALClassification></PALClassification>
+    </>
+
 }
