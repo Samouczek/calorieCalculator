@@ -1,5 +1,5 @@
 
-function validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge){
+export default function validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge){
     if (!isNaN(bodyWeight) && bodyWeight < 2){
         return "Podaj poprawną wagę"
     }
