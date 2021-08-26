@@ -57,11 +57,11 @@ function createData(freeTimeActivity, first, second, third, fourth ) {
 }
 
 const rows = [
-    createData('A', "1,4", "1,5", "1,6", "1,7"),
-    createData('B', "1,5", "1,6", "1,7", "1,8"),
-    createData('C', "1,6", "1,7", "1,8", "1,9"),
-    createData('D', "1,7", "1,8", "1,9", "2,1"),
-    createData('E', "1,9", "2,0", "2,2", "2,3"),
+    createData('A', "1.4", "1.5", "1.6", "1.7"),
+    createData('B', "1.5", "1.6", "1.7", "1.8"),
+    createData('C', "1.6", "1.7", "1.8", "1.9"),
+    createData('D', "1.7", "1.8", "1.9", "2.1"),
+    createData('E', "1.9", "2.0", "2.2", "2.3"),
 ];
 
 export default function PALClassification() {
@@ -94,7 +94,7 @@ export default function PALClassification() {
                                     {rows.map((row) => (
                                         <StyledTableRow key={row.freeTimeActivity}>
                                             <TableCell component="th" scope="row" align="center">
-                                                {row.freeTimeActivity}
+                                               <strong>{row.freeTimeActivity}</strong>
                                             </TableCell>
                                             <TableCell align="center">{row.first}</TableCell>
                                             <TableCell align="center">{row.second}</TableCell>

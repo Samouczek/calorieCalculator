@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -20,9 +20,13 @@ const useStyles = makeStyles(() => ({
         color: theme.palette.primary.dark,
         textAlign: "center",
         paddingBottom: theme.spacing(3),
-    }
+    },
+    result: {
+        color:  theme.palette.common.black,
+        textAlign: "center",
+        paddingBottom: theme.spacing(3),
 
-
+    },
 }));
 
 const sex = [
@@ -39,6 +43,7 @@ const sex = [
 export default function PPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
+    const [ppmResult, setPpmResult] = useState(false);
 
     const handleChange = (event) => {
         setChooseSex(event.target.value);
@@ -114,7 +119,11 @@ export default function PPMForm() {
                                 > oblicz PPM
                                 </Button>
                             </Grid>
-
+                            <Grid item xs={12}>
+                                <Typography variant="h6" gutterBottom className={classes.result}>
+                                    Twoja podstawowa przemiana materia (PPM) wynosi {ppmResult}
+                                </Typography>
+                            </Grid>
                         </Grid>
                         </div>
                 </Container>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +11,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     paper: {
         marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(4),
+        marginBottom: theme.spacing(10),
     },
     button: {
         textAlign: "center",
@@ -27,9 +27,10 @@ const useStyles = makeStyles(() => ({
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
 
-export default function CPMForm() {
+export default function CPMForm({ppm}) {
     const classes = useStyles();
-    const [chooseValue, setChooseValue] = React.useState(0);
+    const [chooseValue, setChooseValue] = useState(0);
+    const [ppmResult, setPpmResult] = useState(0);
 
     const handleChange = (event) => {
         setChooseValue(event.target.value);
@@ -69,7 +70,6 @@ export default function CPMForm() {
                                 name="ppm"
                                 label="PPM"
                                 fullWidth
-                                autoComplete="given-ppn"
                             />
                         </Grid>
                         <Grid item  xs={12} sm={4}>
