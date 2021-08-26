@@ -7,6 +7,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
+import calculatePpm from "../logics/calculatePpm";
 
 const useStyles = makeStyles(() => ({
     paper: {
@@ -25,7 +26,9 @@ const useStyles = makeStyles(() => ({
         color:  theme.palette.common.black,
         textAlign: "center",
         paddingBottom: theme.spacing(3),
-
+    },
+    resultNumber: {
+        color:  theme.palette.primary.dark,
     },
 }));
 
@@ -44,10 +47,18 @@ export default function PPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
     const [ppmResult, setPpmResult] = useState(false);
+    const [bodyWeight, setBodyWeight] = useState(false);
+    const [bodyGrowth, setBodyGrowth] = useState(false);
+    const [bodyAge, setBodyAge] = useState(false);
 
     const handleChange = (event) => {
         setChooseSex(event.target.value);
     };
+
+    const handleCLick = (event) => {
+        event.preventDefault();
+        setPpmResult(calculatePpm(chooseSex,bodyWeight,bodyGrowth,bodyAge));
+    }
 
     return (
             <ThemeProvider theme={theme}>
@@ -85,6 +96,7 @@ export default function PPMForm() {
                                     label="masa ciała w kg"
                                     fullWidth
                                     autoComplete="given-weight"
+                                    onChange={event => setBodyWeight(event.target.value)}
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={6} md={3}>
@@ -95,6 +107,7 @@ export default function PPMForm() {
                                     label="wzrost w cm"
                                     fullWidth
                                     autoComplete="given-growth"
+                                    onChange={event => setBodyGrowth(event.target.value)}
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={6} md={3}>
@@ -105,6 +118,7 @@ export default function PPMForm() {
                                     label="wiek w latach"
                                     fullWidth
                                     autoComplete="given-age"
+                                    onChange={event => setBodyAge(event.target.value)}
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={8} md={9} lg={10}>
@@ -116,13 +130,16 @@ export default function PPMForm() {
                                     variant="contained"
                                     color="primary"
                                     className={classes.button}
+                                    onClick={handleCLick}
                                 > oblicz PPM
                                 </Button>
                             </Grid>
                             <Grid item xs={12}>
+                                {ppmResult &&
                                 <Typography variant="h6" gutterBottom className={classes.result}>
-                                    Twoja podstawowa przemiana materia (PPM) wynosi {ppmResult}
-                                </Typography>
+                                    Twoja podstawowa przemiana materia (PPM) wynosi <span className={classes.resultNumber}>
+                                    {ppmResult} </span> kalorii.
+                                </Typography>}
                             </Grid>
                         </Grid>
                         </div>
