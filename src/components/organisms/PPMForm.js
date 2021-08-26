@@ -8,7 +8,8 @@ import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core"
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 import calculatePpm from "../logics/calculatePpm";
-import * as PropTypes from "prop-types";
+import validationCalculatePpm from "../logics/validationCalculatePpm";
+import { Alert } from '@material-ui/lab';
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -50,14 +51,6 @@ const sex = [
     }
 ];
 
-function Alert(props) {
-    return null;
-}
-
-Alert.propTypes = {
-    severity: PropTypes.string,
-    children: PropTypes.node
-};
 export default function PPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
@@ -65,6 +58,7 @@ export default function PPMForm() {
     const [bodyWeight, setBodyWeight] = useState(false);
     const [bodyGrowth, setBodyGrowth] = useState(false);
     const [bodyAge, setBodyAge] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleChange = (event) => {
         setChooseSex(event.target.value);
@@ -72,7 +66,11 @@ export default function PPMForm() {
 
     const handleCLick = (event) => {
         event.preventDefault();
-        setPpmResult(calculatePpm(chooseSex,bodyWeight,bodyGrowth,bodyAge));
+        if (validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge) ===0){
+            setPpmResult(calculatePpm(chooseSex,bodyWeight,bodyGrowth,bodyAge));
+        } else {
+            setShowAlert(validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge));
+        }
     }
 
     return (
@@ -87,7 +85,6 @@ export default function PPMForm() {
                             <Grid item xs={12} sm={6} md={3}>
                                 <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
                                 <Select
-
                                     labelId="demo-mutiple-checkbox-label"
                                     id="demo-mutiple-checkbox"
                                     value={chooseSex}
@@ -137,7 +134,7 @@ export default function PPMForm() {
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={8} md={9} lg={10}>
-                                <div className={classes.root}> <Alert severity="error">This is an error alert — check it out!</Alert> </div>
+                                <div className={classes.root}>{(showAlert) && <Alert severity="error" onClose={() => setShowAlert(null)} > { showAlert } </Alert>}  </div>
                             </Grid>
                             <Grid item  xs={12} sm={4} md={3} lg={2}>
                                 <Button
