@@ -14,7 +14,7 @@ import {ThemeProvider } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     table: {
         minWidth: 300,
-       
+
     },
 });
 const StyledTableCell = withStyles((theme) => ({

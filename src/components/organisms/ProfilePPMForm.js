@@ -4,12 +4,15 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
-import { Input, InputLabel, MenuItem, Select} from "@material-ui/core";
+import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-
+    paper: {
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+    },
     button: {
         display: 'flex',
         justifyContent: 'flex-end',
@@ -40,71 +43,72 @@ export default function ProfilePPMForm() {
     };
 
     return (
-        <React.Fragment>
             <ThemeProvider theme={theme}>
-            <Typography variant="h6" gutterBottom>
-                Wyliczenie podstawowej przemiany materii PPM
-            </Typography>
+                <Container component="main" maxWidth="lg">
+                    <div className={classes.paper}>
+                        <Typography variant="h6" gutterBottom>
+                            Wyliczenie podstawowej przemiany materii PPM
+                        </Typography>
+                        <Grid container spacing={3}>
 
-            <Grid container spacing={3}>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
+                                <Select
 
-                <Grid item xs={12} sm={6} md={3}>
-                    <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
-                    <Select
+                                    labelId="demo-mutiple-checkbox-label"
+                                    id="demo-mutiple-checkbox"
+                                    value={chooseSex}
+                                    onChange={handleChange}
+                                    input={<Input />}
+                                    fullWidth
+                                >
+                                    {sex.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </Grid>
 
-                        labelId="demo-mutiple-checkbox-label"
-                        id="demo-mutiple-checkbox"
-                        value={chooseSex}
-                        onChange={handleChange}
-                        input={<Input />}
-                        fullWidth
-                    >
-                        {sex.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </Grid>
-
-                <Grid item xs={12} sm={6} md={3}>
-                    <TextField
-                        required
-                        id="bodyWeight"
-                        name="bodyWeight"
-                        label="masa ciała w kg"
-                        fullWidth
-                        autoComplete="given-weight"
-                    />
-                </Grid>
-                <Grid item  xs={12} sm={6} md={3}>
-                    <TextField
-                        required
-                        id="bodyGrowth"
-                        name="bodyGrowth"
-                        label="wzrost w cm"
-                        fullWidth
-                        autoComplete="given-growth"
-                    />
-                </Grid>
-                <Grid item  xs={12} sm={6} md={3}>
-                    <TextField
-                        required
-                        id="age"
-                        name="age"
-                        label="wiek w latach"
-                        fullWidth
-                        autoComplete="given-age"
-                    />
-                </Grid>
-            </Grid>
-            <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-            > oblicz PPM
-            </Button>
+                            <Grid item xs={12} sm={6} md={3}>
+                                <TextField
+                                    required
+                                    id="bodyWeight"
+                                    name="bodyWeight"
+                                    label="masa ciała w kg"
+                                    fullWidth
+                                    autoComplete="given-weight"
+                                />
+                            </Grid>
+                            <Grid item  xs={12} sm={6} md={3}>
+                                <TextField
+                                    required
+                                    id="bodyGrowth"
+                                    name="bodyGrowth"
+                                    label="wzrost w cm"
+                                    fullWidth
+                                    autoComplete="given-growth"
+                                />
+                            </Grid>
+                            <Grid item  xs={12} sm={6} md={3}>
+                                <TextField
+                                    required
+                                    id="age"
+                                    name="age"
+                                    label="wiek w latach"
+                                    fullWidth
+                                    autoComplete="given-age"
+                                />
+                            </Grid>
+                        </Grid>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.button}
+                        > oblicz PPM
+                        </Button>
+                        </div>
+                </Container>
                 </ThemeProvider>
-        </React.Fragment>
     );
 }
