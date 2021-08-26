@@ -7,12 +7,33 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {withStyles} from "@material-ui/core";
+import theme from "../atoms/theme";
+import {ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     table: {
-        minWidth: 650,
+        minWidth: 300,
+       
     },
 });
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+        backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.common.white,
+    },
+    body: {
+        fontSize: 14,
+    },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+    root: {
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+        },
+    },
+}))(TableRow);
 
 function createData(freeTimeActivity, first, second, third, fourth ) {
     return { freeTimeActivity, first, second, third, fourth };
@@ -30,35 +51,37 @@ export default function PALClassification() {
     const classes = useStyles();
 
     return (
+        <ThemeProvider theme={theme}>
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
-                    <TableRow>
-                        <TableCell align="right">Czas wolny</TableCell>
-                        <TableCell align="right" colSpan={4}>Praca</TableCell>
-                    </TableRow>
-                    <TableRow>
+                    <StyledTableRow>
+                        < StyledTableCell  align="center">Czas wolny</ StyledTableCell >
+                        < StyledTableCell  align="center" colSpan={4}>Praca</ StyledTableCell >
+                    </StyledTableRow>
+                    <StyledTableRow>
                         <TableCell>  </TableCell>
-                        <TableCell align="right">1</TableCell>
-                        <TableCell align="right">2</TableCell>
-                        <TableCell align="right">3</TableCell>
-                        <TableCell align="right">4</TableCell>
-                    </TableRow>
+                        <TableCell align="center">1</TableCell>
+                        <TableCell align="center">2</TableCell>
+                        <TableCell align="center">3</TableCell>
+                        <TableCell align="center">4</TableCell>
+                    </StyledTableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.freeTimeActivity}>
-                            <TableCell component="th" scope="row">
+                        <StyledTableRow key={row.freeTimeActivity}>
+                            <TableCell component="th" scope="row" align="center">
                                 {row.freeTimeActivity}
                             </TableCell>
-                            <TableCell align="right">{row.first}</TableCell>
-                            <TableCell align="right">{row.second}</TableCell>
-                            <TableCell align="right">{row.third}</TableCell>
-                            <TableCell align="right">{row.fourth}</TableCell>
-                        </TableRow>
+                            <TableCell align="center">{row.first}</TableCell>
+                            <TableCell align="center">{row.second}</TableCell>
+                            <TableCell align="center">{row.third}</TableCell>
+                            <TableCell align="center">{row.fourth}</TableCell>
+                        </StyledTableRow>
                     ))}
                 </TableBody>
             </Table>
         </TableContainer>
+            </ThemeProvider>
     );
 }
