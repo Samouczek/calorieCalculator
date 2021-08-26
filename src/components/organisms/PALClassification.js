@@ -10,10 +10,25 @@ import Paper from '@material-ui/core/Paper';
 import {withStyles} from "@material-ui/core";
 import theme from "../atoms/theme";
 import {ThemeProvider } from '@material-ui/core/styles';
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
     root: {
-        margin: theme.spacing(1),
+        minWidth: 275,
+        marginBottom: theme.spacing(1),
+        marginTop: theme.spacing(1),
+        [theme.breakpoints.up('md')]: {
+            minHeight: 500,
+        },
+
+    },
+    title: {
+        color: theme.palette.primary.dark
+    },
+    pos: {
+        marginBottom: 12,
     },
     table: {
         minWidth: 300,
@@ -54,36 +69,47 @@ export default function PALClassification() {
 
     return (
         <ThemeProvider theme={theme}>
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-                <TableHead>
-                    <StyledTableRow>
-                        < StyledTableCell  align="center">Czas wolny</ StyledTableCell >
-                        < StyledTableCell  align="center" colSpan={4}>Praca</ StyledTableCell >
-                    </StyledTableRow>
-                    <StyledTableRow>
-                        <TableCell>  </TableCell>
-                        <TableCell align="center">1</TableCell>
-                        <TableCell align="center">2</TableCell>
-                        <TableCell align="center">3</TableCell>
-                        <TableCell align="center">4</TableCell>
-                    </StyledTableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.freeTimeActivity}>
-                            <TableCell component="th" scope="row" align="center">
-                                {row.freeTimeActivity}
-                            </TableCell>
-                            <TableCell align="center">{row.first}</TableCell>
-                            <TableCell align="center">{row.second}</TableCell>
-                            <TableCell align="center">{row.third}</TableCell>
-                            <TableCell align="center">{row.fourth}</TableCell>
-                        </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+            <Card className={classes.root}>
+                <CardContent>
+                    <Typography variant="h6" component="h6" className={classes.title} >
+                        III. Klasyfikacja współczynnika aktywności fizycznej (PAL)
+                    </Typography>
+                    <Typography className={classes.pos} color="textSecondary">
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="simple table">
+                                <TableHead>
+                                    <StyledTableRow>
+                                        < StyledTableCell  align="center">Czas wolny</ StyledTableCell >
+                                        < StyledTableCell  align="center" colSpan={4}>Praca</ StyledTableCell >
+                                    </StyledTableRow>
+                                    <StyledTableRow>
+                                        <TableCell>  </TableCell>
+                                        <TableCell align="center">1</TableCell>
+                                        <TableCell align="center">2</TableCell>
+                                        <TableCell align="center">3</TableCell>
+                                        <TableCell align="center">4</TableCell>
+                                    </StyledTableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {rows.map((row) => (
+                                        <StyledTableRow key={row.freeTimeActivity}>
+                                            <TableCell component="th" scope="row" align="center">
+                                                {row.freeTimeActivity}
+                                            </TableCell>
+                                            <TableCell align="center">{row.first}</TableCell>
+                                            <TableCell align="center">{row.second}</TableCell>
+                                            <TableCell align="center">{row.third}</TableCell>
+                                            <TableCell align="center">{row.fourth}</TableCell>
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Typography>
+                </CardContent>
+            </Card>
             </ThemeProvider>
     );
 }
+
+

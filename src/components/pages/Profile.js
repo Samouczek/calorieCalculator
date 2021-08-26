@@ -3,13 +3,23 @@ import ProfilePPMForm from "../organisms/ProfilePPMForm";
 import PALClassification from "../organisms/PALClassification";
 import FreeTimeActivity from "../organisms/FreeTimeActivity";
 import WorkTimeActivity from "../organisms/WorkTimeActivity";
+import {Container} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 
 export default function Profile(){
-    return <>
+    return  <Container component="main" maxWidth="lg">
         <ProfilePPMForm/>
-        <FreeTimeActivity/>
-        <WorkTimeActivity/>
-        <PALClassification/>
-    </>
+            <Grid container spacing={3}>
+                <Grid item sm={12} md={6} lg={4}>
+                    <FreeTimeActivity/>
+                </Grid>
+                <Grid item sm={12} md={6} lg={4}>
+                    <WorkTimeActivity/>
+                </Grid>
+                <Grid item sm={12} md={12} lg={4}>
+                    <PALClassification/>
+                </Grid>
+            </Grid>
+    </Container>
 
 }
