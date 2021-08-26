@@ -8,8 +8,15 @@ import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core"
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 import calculatePpm from "../logics/calculatePpm";
+import * as PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
+    root: {
+        width: '100%',
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
+    },
     paper: {
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(4),
@@ -43,6 +50,14 @@ const sex = [
     }
 ];
 
+function Alert(props) {
+    return null;
+}
+
+Alert.propTypes = {
+    severity: PropTypes.string,
+    children: PropTypes.node
+};
 export default function PPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
@@ -122,7 +137,7 @@ export default function PPMForm() {
                                 />
                             </Grid>
                             <Grid item  xs={12} sm={8} md={9} lg={10}>
-                                <div> </div>
+                                <div className={classes.root}> <Alert severity="error">This is an error alert — check it out!</Alert> </div>
                             </Grid>
                             <Grid item  xs={12} sm={4} md={3} lg={2}>
                                 <Button

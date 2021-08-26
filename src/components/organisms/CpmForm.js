@@ -58,7 +58,7 @@ export default function CPMForm({ppm}) {
                             >
                                 {values.map((option) => (
                                     <MenuItem key={option} value={option}>
-                                        {option}
+                                        {option.toFixed(1)}
                                     </MenuItem>
                                 ))}
                             </Select>
