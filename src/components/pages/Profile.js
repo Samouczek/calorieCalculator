@@ -1,11 +1,13 @@
 import React from "react";
 import ProfilePPMForm from "../organisms/ProfilePPMForm";
-import PALClassification from "../atoms/PALClassification";
+import PALClassification from "../organisms/PALClassification";
+import FreeTimeActivity from "../organisms/FreeTimeActivity";
 
 export default function Profile(){
     return <>
         <ProfilePPMForm/>
-        <PALClassification></PALClassification>
+        <FreeTimeActivity/>
+        <PALClassification/>
     </>
 
 }
