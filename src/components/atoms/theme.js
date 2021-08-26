@@ -13,7 +13,7 @@ import { createTheme } from '@material-ui/core/styles';
             main: '#ffea00',
             dark: '#c7b800',
             contrastText: '#000',
-        },
+        }
     },
 });
 
