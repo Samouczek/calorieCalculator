@@ -36,7 +36,7 @@ const sex = [
     }
 ];
 
-export default function ProfilePPMForm() {
+export default function PPMForm() {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
 
