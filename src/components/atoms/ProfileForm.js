@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
-import {FormControl, Input, InputAdornment, InputLabel, MenuItem, Select} from "@material-ui/core";
+import { Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import theme from "./theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -16,10 +16,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginLeft: theme.spacing(1),
     },
-    selectSex: {
-        alignItems: 'flex-end',
-        justifyItems: 'flex-end',
-    }
+
 }));
 
 const sex = [
@@ -33,16 +30,6 @@ const sex = [
     }
 ];
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-        },
-    },
-};
 
 export default function ProfileForm() {
     const classes = useStyles();
@@ -56,7 +43,7 @@ export default function ProfileForm() {
         <React.Fragment>
             <ThemeProvider theme={theme}>
             <Typography variant="h6" gutterBottom>
-                Obliczenie
+                Wyliczenie podstawowej przemiany materii PPM
             </Typography>
 
             <Grid container spacing={3}>
