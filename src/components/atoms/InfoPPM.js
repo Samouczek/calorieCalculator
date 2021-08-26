@@ -10,12 +10,6 @@ const useStyles = makeStyles({
         minWidth: 275,
         marginBottom: theme.spacing(2),
         marginTop: theme.spacing(2),
-        [theme.breakpoints.up('md')]: {
-            minHeight: 470,
-        },
-        [theme.breakpoints.up('lg')]: {
-            minHeight: 500,
-        },
     },
     title: {
         color: theme.palette.primary.dark,
@@ -49,7 +43,7 @@ export default function InfoPPM() {
                     Pdstawowa przemiana materii (PPM)
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                    <p style={{textAlign: 'justify'}}><strong>Podstawowa przemiana materii (PPM)</strong> (<em>ang. Basal metabolic rate</em>) – najmniejsze
+                    <p style={{textAlign: 'justify'}}><strong>Podstawowa przemiana materii (PPM)</strong> (<em>ang. Basal metabolic rate - BMR</em>) – najmniejsze
                         tempo przemiany materii, zachodzącej w organizmie człowieka, niezbędne do podtrzymania
                         podstawowych funkcji życiowych, znajdującego się w stanie czuwania, w warunkach zupełnego
                         spokoju fizycznego i psychicznego, komfortu cieplnego, który na 12 godzin przed badaniem

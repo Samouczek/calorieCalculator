@@ -6,11 +6,13 @@ import WorkTimeActivity from "../organisms/WorkTimeActivity";
 import {Container} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import InfoPPM from "../atoms/InfoPPM";
+import InfoCPM from "../atoms/InfoCPM";
 
 export default function Profile(){
     return  <Container component="main" maxWidth="lg">
         <InfoPPM/>
         <ProfilePPMForm/>
+        <InfoCPM/>
             <Grid container spacing={3}>
                 <Grid item sm={12} md={6} lg={4}>
                     <FreeTimeActivity/>
