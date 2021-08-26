@@ -8,16 +8,20 @@ import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core"
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     paper: {
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(4),
     },
     button: {
-        display: 'flex',
-        justifyContent: 'flex-end',
-        flexDirection:"row-reverse",
+        textAlign: "center",
     },
+    header: {
+        color: theme.palette.primary.dark,
+        textAlign: "center",
+        paddingBottom: theme.spacing(3),
+    }
+
 
 }));
 
@@ -44,7 +48,7 @@ export default function ProfilePPMForm() {
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="lg">
                     <div className={classes.paper}>
-                        <Typography variant="h6" gutterBottom>
+                        <Typography variant="h6" gutterBottom className={classes.header}>
                             Wyliczenie podstawowej przemiany materii PPM
                         </Typography>
                         <Grid container spacing={3}>
@@ -98,8 +102,12 @@ export default function ProfilePPMForm() {
                                     autoComplete="given-age"
                                 />
                             </Grid>
-                            <Grid item  xs={12} sm={4} md={3}>
+                            <Grid item  xs={12} sm={8} md={9} lg={10}>
+                                <div> </div>
+                            </Grid>
+                            <Grid item  xs={12} sm={4} md={3} lg={2}>
                                 <Button
+                                    fullWidth
                                     variant="contained"
                                     color="primary"
                                     className={classes.button}

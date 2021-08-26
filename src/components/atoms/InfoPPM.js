@@ -8,8 +8,8 @@ import theme from "../atoms/theme";
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        marginBottom: theme.spacing(1),
-        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(2),
+        marginTop: theme.spacing(2),
         [theme.breakpoints.up('md')]: {
             minHeight: 470,
         },
