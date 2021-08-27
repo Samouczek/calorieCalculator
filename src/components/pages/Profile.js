@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PPMForm from "../organisms/PPMForm";
 import PALClassification from "../organisms/PALClassification";
 import FreeTimeActivity from "../organisms/FreeTimeActivity";
@@ -9,12 +9,18 @@ import InfoPPM from "../atoms/InfoPPM";
 import InfoCPM from "../atoms/InfoCPM";
 import CPMForm from "../organisms/CpmForm";
 import Copyright from "../organisms/Copyright";
-import ResultCalcCpm from "../atoms/ResultCalcCpm";
 
 export default function Profile(){
+    const [ppmValue, setPpmValue] = useState(false);
+    const[bodyWeight, setBodyWeight] = useState(false);
+
+    const handleParameters = (ppmParameter, bodyWeightParameter) =>{
+        return [setPpmValue(ppmParameter), setBodyWeight(bodyWeightParameter)];
+    }
+
     return  <Container component="main" maxWidth="lg">
         <InfoPPM/>
-        <PPMForm/>
+        <PPMForm getParameters={handleParameters}/>
         <InfoCPM/>
             <Grid container spacing={3}>
                 <Grid item sm={12} md={6} lg={4}>
@@ -27,8 +33,7 @@ export default function Profile(){
                     <PALClassification/>
                 </Grid>
             </Grid>
-        <CPMForm/>
-        <ResultCalcCpm/>
+        <CPMForm bodyWeight={bodyWeight} ppm={ppmValue}/>
         <Copyright/>
     </Container>
 

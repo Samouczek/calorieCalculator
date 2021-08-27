@@ -7,6 +7,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
+import ResultCalcCpm from "../atoms/ResultCalcCpm";
+import calculateCpm from "../logics/calculateCpm";
 
 const useStyles = makeStyles(() => ({
     paper: {
@@ -27,14 +29,18 @@ const useStyles = makeStyles(() => ({
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
 
-export default function CPMForm({ppm}) {
+export default function CPMForm({ppm, bodyWeight}) {
     const classes = useStyles();
-    const [chooseValue, setChooseValue] = useState(0);
-    const [ppmResult, setPpmResult] = useState(0);
+    const [ppmValue, setPpmValue] = useState(ppm);
+    const [choosePalValue, setChoosePalValue] = useState(false);
+    const [cpmResult, setCpmResult] = useState(false);
 
-    const handleChange = (event) => {
-        setChooseValue(event.target.value);
-    };
+    const handleClick = (event) => {
+        event.preventDefault();
+        setCpmResult(calculateCpm(choosePalValue,ppmValue));
+        console.log(ppmValue);
+        console.log(choosePalValue)
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -51,8 +57,8 @@ export default function CPMForm({ppm}) {
 
                                 labelId="demo-mutiple-checkbox-label"
                                 id="demo-mutiple-checkbox"
-                                value={chooseValue}
-                                onChange={handleChange}
+                                value={choosePalValue}
+                                onChange={event =>  setChoosePalValue(event.target.value)}
                                 input={<Input />}
                                 fullWidth
                             >
@@ -69,7 +75,9 @@ export default function CPMForm({ppm}) {
                                 id="ppm"
                                 name="ppm"
                                 label="PPM"
+                                autoComplete={(ppmValue) && ppmValue}
                                 fullWidth
+                                onChange={event => setPpmValue(event.target.value)}
                             />
                         </Grid>
                         <Grid item  xs={12} sm={4}>
@@ -78,10 +86,12 @@ export default function CPMForm({ppm}) {
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
+                                onClick={handleClick}
                             > oblicz CPM
                             </Button>
                         </Grid>
                     </Grid>
+                    {(cpmResult) && <ResultCalcCpm cpmResult={cpmResult} bodyWeight={bodyWeight} palValue={choosePalValue}/>}
                 </div>
             </Container>
         </ThemeProvider>

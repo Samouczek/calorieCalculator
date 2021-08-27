@@ -51,7 +51,7 @@ const sex = [
     }
 ];
 
-export default function PPMForm() {
+export default function PPMForm({getParameters}) {
     const classes = useStyles();
     const [chooseSex, setChooseSex] = React.useState(0);
     const [ppmResult, setPpmResult] = useState(false);
@@ -68,6 +68,9 @@ export default function PPMForm() {
         event.preventDefault();
         if (validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge) ===0){
             setPpmResult(calculatePpm(chooseSex,bodyWeight,bodyGrowth,bodyAge));
+            if(typeof  getParameters === 'function') {
+                getParameters(ppmResult, bodyWeight);
+            }
         } else {
             setShowAlert(validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge));
         }
