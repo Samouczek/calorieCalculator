@@ -22,7 +22,7 @@ export default function calculateProteinCarboFat(cpmValue,bodyWeight,palValue){
         case 2.3:
             return calc(cpmValue,bodyWeight,3);
         default:
-            return false; 
+            return false;
     }
 }
 
