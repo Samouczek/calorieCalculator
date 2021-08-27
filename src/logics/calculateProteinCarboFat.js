@@ -1,6 +1,6 @@
 
 export default function calculateProteinCarboFat(cpmValue, bodyWeight, palValue){
-    switch (palValue) {
+    switch ( palValue ) {
         case 1.4:
             return calc(cpmValue, bodyWeight, 1);
         case 1.5:
@@ -37,9 +37,9 @@ const calc = ( cpmValue, bodyWeight, proteinPerKg ) => {
     const fatGrams = (fatKcal/9).toFixed(0);
 
     return [
-        [proteinGrams,proteinsKcal,proteinsPercent],
-        [carbGrams, carboKcal,55],
-        [fatGrams, fatKcal, fatPercent]
+        [ proteinGrams, proteinsKcal, proteinsPercent ],
+        [ carbGrams, carboKcal, 55 ],
+        [ fatGrams, fatKcal, fatPercent ]
     ]
 
 }
