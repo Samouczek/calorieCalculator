@@ -14,7 +14,7 @@ export default function Profile(){
     const [ppmValue, setPpmValue] = useState(false);
     const[bodyWeight, setBodyWeight] = useState(false);
 
-    const handleParameters = (ppmParameter, bodyWeightParameter) =>{
+    const handleParameters = (ppmParameter, bodyWeightParameter) => {
         return [setPpmValue(ppmParameter), setBodyWeight(bodyWeightParameter)];
     }
 

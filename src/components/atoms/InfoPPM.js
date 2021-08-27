@@ -46,7 +46,8 @@ export default function InfoPPM() {
                 <Typography className={classes.pos} color="textSecondary">
                     <Grid container spacing={2}>
                         <Grid item sm={12} md={7}>
-                                <p style={{textAlign: 'justify'}}><strong>Podstawowa przemiana materii (PPM) </strong>
+                                <p style={{textAlign: 'justify'}}>
+                                    <strong>Podstawowa przemiana materii (PPM) </strong>
                                      (<em>ang. Basal metabolic rate - BMR</em>) – najmniejsze
                                     tempo przemiany materii, zachodzącej w organizmie człowieka, niezbędne do podtrzymania
                                     podstawowych funkcji życiowych, znajdującego się w stanie czuwania, w warunkach zupełnego
@@ -65,7 +66,6 @@ export default function InfoPPM() {
                         </Grid>
                     </Grid>
                 </Typography>
-
             </CardContent>
         </Card>
     );

@@ -23,7 +23,6 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
-
 });
 
 export default function WorkTimeActivity() {
@@ -38,12 +37,18 @@ export default function WorkTimeActivity() {
                 <Typography className={classes.pos} color="textSecondary">
                     <ol style={{listStyleType: 'upper-latin'}}>
                         <li>bardzo lekka: brak aktywności fizycznej w wolnym czasie</li>
-                        <li>lekka: np. spacer, rekreacyjna jazda na rowerze, praca w ogródku, wykonywana
-                            w przybliżeniu raz w tygodniu</li>
-                        <li>umiarkowana: regularne ćwiczenia przynajmniej raz w tygodniu, np. spacer, jaz-
-                            da na rowerze, albo praca w ogródku lub marsz 10–30 min dziennie</li>
-                        <li>duża: regularne intensywne ćwiczenia więcej niż raz w tygodniu, np. intensywne
-                            spacery lub intensywna jazda na rowerze, albo uprawianie sportu</li>
+                        <li>
+                            lekka: np. spacer, rekreacyjna jazda na rowerze, praca w ogródku, wykonywana
+                            w przybliżeniu raz w tygodniu
+                        </li>
+                        <li>
+                            umiarkowana: regularne ćwiczenia przynajmniej raz w tygodniu, np. spacer, jaz-
+                            da na rowerze, albo praca w ogródku lub marsz 10–30 min dziennie
+                        </li>
+                        <li>
+                            duża: regularne intensywne ćwiczenia więcej niż raz w tygodniu, np. intensywne
+                            spacery lub intensywna jazda na rowerze, albo uprawianie sportu
+                        </li>
                         <li>intensywna: ciężka aktywność fizyczna kilka razy w tygodniu</li>
                     </ol>
                 </Typography>

@@ -7,8 +7,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
-import calculatePpm from "../logics/calculatePpm";
-import validationCalculatePpm from "../logics/validationCalculatePpm";
+import calculatePpm from "../../logics/calculatePpm";
+import validationCalculatePpm from "../../logics/validationCalculatePpm";
 import { Alert } from '@material-ui/lab';
 
 const useStyles = makeStyles(() => ({
@@ -66,9 +66,9 @@ export default function PPMForm({getParameters}) {
 
     const handleCLick = (event) => {
         event.preventDefault();
-        if (validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge) ===0){
+        if (validationCalculatePpm(bodyWeight,bodyGrowth,bodyAge) === 0){
             setPpmResult(calculatePpm(chooseSex,bodyWeight,bodyGrowth,bodyAge));
-            if(typeof  getParameters === 'function') {
+            if (typeof getParameters === 'function') {
                 getParameters(ppmResult, bodyWeight);
             }
         } else {
@@ -77,88 +77,96 @@ export default function PPMForm({getParameters}) {
     }
 
     return (
-            <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="lg">
-                    <div className={classes.paper}>
-                        <Typography variant="h6" gutterBottom className={classes.header}>
-                            Wyliczenie podstawowej przemiany materii PPM
-                        </Typography>
-                        <Grid container spacing={3}>
-
-                            <Grid item xs={12} sm={6} md={3}>
-                                <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
-                                <Select
-                                    labelId="demo-mutiple-checkbox-label"
-                                    id="demo-mutiple-checkbox"
-                                    value={chooseSex}
-                                    onChange={handleChange}
-                                    input={<Input />}
-                                    fullWidth
-                                >
-                                    {sex.map((option) => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
-                            </Grid>
-
-                            <Grid item xs={12} sm={6} md={3}>
-                                <TextField
-                                    required
-                                    id="bodyWeight"
-                                    name="bodyWeight"
-                                    label="masa ciała w kg"
-                                    fullWidth
-                                    autoComplete="given-weight"
-                                    onChange={event => setBodyWeight(event.target.value)}
-                                />
-                            </Grid>
-                            <Grid item  xs={12} sm={6} md={3}>
-                                <TextField
-                                    required
-                                    id="bodyGrowth"
-                                    name="bodyGrowth"
-                                    label="wzrost w cm"
-                                    fullWidth
-                                    autoComplete="given-growth"
-                                    onChange={event => setBodyGrowth(event.target.value)}
-                                />
-                            </Grid>
-                            <Grid item  xs={12} sm={6} md={3}>
-                                <TextField
-                                    required
-                                    id="age"
-                                    name="age"
-                                    label="wiek w latach"
-                                    fullWidth
-                                    autoComplete="given-age"
-                                    onChange={event => setBodyAge(event.target.value)}
-                                />
-                            </Grid>
-                            <Grid item  xs={12} sm={8} md={9} lg={10}>
-                                <div className={classes.root}>{(showAlert) && <Alert severity="error" onClose={() => setShowAlert(null)} > { showAlert } </Alert>}  </div>
-                            </Grid>
-                            <Grid item  xs={12} sm={4} md={3} lg={2}>
-                                <Button
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.button}
-                                    onClick={handleCLick}
-                                > oblicz PPM
-                                </Button>
-                            </Grid>
-                            <Grid item xs={12}>
-                                {ppmResult &&
-                                <Typography variant="h6" gutterBottom className={classes.result}>
-                                    Twoja podstawowa przemiana materia (PPM) wynosi <span className={classes.resultNumber}>
-                                    {ppmResult} </span> kalorii.
-                                </Typography>}
-                            </Grid>
+        <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="lg">
+                <div className={classes.paper}>
+                    <Typography variant="h6" gutterBottom className={classes.header}>
+                        Wyliczenie podstawowej przemiany materii PPM
+                    </Typography>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={6} md={3}>
+                            <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
+                            <Select
+                                labelId="demo-mutiple-checkbox-label"
+                                id="demo-mutiple-checkbox"
+                                value={chooseSex}
+                                onChange={handleChange}
+                                input={<Input />}
+                                fullWidth
+                            >
+                                {sex.map((option) => (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                ))}
+                            </Select>
                         </Grid>
-                        </div>
-                </Container>
-                </ThemeProvider>
+                        <Grid item xs={12} sm={6} md={3}>
+                            <TextField
+                                required
+                                id="bodyWeight"
+                                name="bodyWeight"
+                                label="masa ciała w kg"
+                                fullWidth
+                                autoComplete="given-weight"
+                                onChange={event => setBodyWeight(event.target.value)}
+                            />
+                        </Grid>
+                        <Grid item  xs={12} sm={6} md={3}>
+                            <TextField
+                                required
+                                id="bodyGrowth"
+                                name="bodyGrowth"
+                                label="wzrost w cm"
+                                fullWidth
+                                autoComplete="given-growth"
+                                onChange={event => setBodyGrowth(event.target.value)}
+                            />
+                        </Grid>
+                        <Grid item  xs={12} sm={6} md={3}>
+                            <TextField
+                                required
+                                id="age"
+                                name="age"
+                                label="wiek w latach"
+                                fullWidth
+                                autoComplete="given-age"
+                                onChange={event => setBodyAge(event.target.value)}
+                            />
+                        </Grid>
+                        <Grid item  xs={12} sm={8} md={9} lg={10}>
+                            <div className={classes.root}>{
+                                (showAlert)
+                                &&
+                                <Alert
+                                    severity="error"
+                                    onClose={() => setShowAlert(null)}
+                                >
+                                    { showAlert }
+                                </Alert>}
+                            </div>
+                        </Grid>
+                        <Grid item  xs={12} sm={4} md={3} lg={2}>
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={handleCLick}
+                            >
+                                oblicz PPM
+                            </Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {ppmResult &&
+                            <Typography variant="h6" gutterBottom className={classes.result}>
+                                Twoja podstawowa przemiana materia (PPM) wynosi <span className={classes.resultNumber}>
+                                {ppmResult} </span> kalorii.
+                            </Typography>}
+                        </Grid>
+                    </Grid>
+                </div>
+            </Container>
+        </ThemeProvider>
     );
 }

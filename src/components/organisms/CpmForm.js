@@ -8,7 +8,7 @@ import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core"
 import theme from "../atoms/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 import ResultCalcCpm from "../atoms/ResultCalcCpm";
-import calculateCpm from "../logics/calculateCpm";
+import calculateCpm from "../../logics/calculateCpm";
 
 const useStyles = makeStyles(() => ({
     paper: {

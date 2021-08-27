@@ -1,14 +1,13 @@
 import Typography from "@material-ui/core/Typography";
-import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
+import React from "react";
 import theme from "./theme";
-import calculateProteinCarboFat from "../logics/calculateProteinCarboFat";
+import calculateProteinCarboFat from "../../logics/calculateProteinCarboFat";
 
 const useStyles = makeStyles({
     root:{
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(4),
-
     },
     resultNumber: {
         color:  theme.palette.primary.dark,
@@ -25,10 +24,14 @@ export default function ResultCalcCpm({cpmResult, palValue, bodyWeight}){
 
     return <div className={classes.root}>
         <Typography variant="h5" gutterBottom>
-            Twoja szacowana całkowita przemiana materia (CPM) wynosi <span className={classes.resultNumber}>
-                                    {cpmResult} </span> kalorii.
+            Twoja szacowana całkowita przemiana materia (CPM) wynosi
+            <span
+                className={classes.resultNumber}>
+                {cpmResult}
+            </span> kalorii.
         </Typography>
-        <Typography variant="h6" gutterBottom className={classes.resultNumber}>
+        <Typography variant="h6" gutterBottom
+                    className={classes.resultNumber}>
             Porady:
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
