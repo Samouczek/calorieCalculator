@@ -1,8 +1,8 @@
 
-export default function validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) {
-    const weight = parseInt(bodyWeight);
-    const growth = parseInt(bodyGrowth);
-    const age= parseInt(bodyAge);
+export default function validationCalculatePpm( bodyWeight, bodyGrowth, bodyAge ) {
+    const weight = parseInt( bodyWeight );
+    const growth = parseInt( bodyGrowth );
+    const age= parseInt( bodyAge );
     if (Number.isNaN( weight ) || bodyWeight < 2) {
         return "Podaj poprawną wagę"
     }
