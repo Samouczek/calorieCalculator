@@ -20,37 +20,21 @@ export default function InfoCPM() {
                     <Grid container spacing={2}>
                         <Grid item sm={12} md={6}>
                             <p style={{textAlign: 'justify'}}>
-                                <strong>
-                                    Całkowita przemiana materii (CPM)
-                                </strong>
-                                (
-                                <em>
+                                <strong>Całkowita przemiana materii (CPM)</strong> ( <em>
                                     ang. total daily energy expenditure – TDEE
-                                </em>)
-                                –  suma wszystkich wydatków energetycznych człowieka, które ponosi podczas
+                                </em>) –  suma wszystkich wydatków energetycznych człowieka, które ponosi podczas
                                 aktywności fizycznej w ciągu jednego dnia.
                             </p>
-                            <p>
-                                Całkwitą przemianę materii można obliczyć posługując się uproszczonym wzorem.
-                            </p>
+                            <p>Całkwitą przemianę materii można obliczyć posługując się uproszczonym wzorem.</p>
                         </Grid>
                         <Grid item sm={12} md={6}>
-                            <p className={classes.formula}>
-                                CPM = PPM × PAL
-                            </p>
+                            <p className={classes.formula}> CPM = PPM × PAL </p>
                             <p className={classes.componentsFormula}>
-                                <strong color={theme.palette.primary.dark}>
-                                    PPM
-                                </strong>
-                                – podstawowa przemiana materii, którą możesz
-                                <br/>
-                                obliczyć ze wzoru Harrisa i Benedicta
-                                <br/>
-                                <strong color={theme.palette.primary.dark}>
-                                    PAL
-                                </strong>
-                                – współczynnik aktywności fizycznej, który możesz
-                                <br/>
+                                <strong color={theme.palette.primary.dark}> PPM </strong>
+                                – podstawowa przemiana materii, którą możesz <br/>
+                                obliczyć ze wzoru Harrisa i Benedicta <br/>
+                                <strong color={theme.palette.primary.dark}> PAL </strong>
+                                – współczynnik aktywności fizycznej, który możesz <br/>
                                 oszacować na podstawie ankiety
                             </p>
                         </Grid>

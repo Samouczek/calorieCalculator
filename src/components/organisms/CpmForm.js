@@ -12,12 +12,13 @@ import StyleCpmFrom from "../../styles/StyleCpmFrom";
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
 
-export default function CPMForm({ppm, bodyWeight}) {
+export default function CPMForm({ppm,bodyWeight}) {
     const classes = StyleCpmFrom();
-    const [ppmValue, setPpmValue] = useState(ppm);
+    const [ppmValue, setPpmValue] = useState("");
     const [choosePalValue, setChoosePalValue] = useState(false);
     const [cpmResult, setCpmResult] = useState(false);
 
+    (ppm) && setPpmValue(ppm);
     const handleClick = (event) => {
         event.preventDefault();
         setCpmResult(calculateCpm(choosePalValue,ppmValue));
@@ -61,7 +62,8 @@ export default function CPMForm({ppm, bodyWeight}) {
                                 id="ppm"
                                 name="ppm"
                                 label="PPM"
-                                autoComplete = {(ppmValue) && ppmValue}
+                                value={ppmValue}
+                                autoComplete = "given-ppmValue"
                                 fullWidth
                                 onChange = {event => setPpmValue(event.target.value)}
                             />
