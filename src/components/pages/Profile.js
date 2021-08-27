@@ -9,6 +9,7 @@ import InfoPPM from "../atoms/InfoPPM";
 import InfoCPM from "../atoms/InfoCPM";
 import CPMForm from "../organisms/CpmForm";
 import Copyright from "../organisms/Copyright";
+import ResultCalcCpm from "../atoms/ResultCalcCpm";
 
 export default function Profile(){
     return  <Container component="main" maxWidth="lg">
@@ -27,6 +28,7 @@ export default function Profile(){
                 </Grid>
             </Grid>
         <CPMForm/>
+        <ResultCalcCpm/>
         <Copyright/>
     </Container>
 
