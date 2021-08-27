@@ -1,42 +1,28 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import theme from "../../styles/theme";
-
-const useStyles = makeStyles({
-    root: {
-        minWidth: 275,
-        marginBottom: theme.spacing(1),
-        marginTop: theme.spacing(1),
-        [theme.breakpoints.up('md')]: {
-            minHeight: 470,
-        },
-        [theme.breakpoints.up('lg')]: {
-            minHeight: 500,
-        },
-    },
-    title: {
-        color: theme.palette.primary.dark
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
+import StyleWorkTimeActivity from "../../styles/StyleWorkTimeActivity";
 
 export default function WorkTimeActivity() {
-    const classes = useStyles();
+    const classes = StyleWorkTimeActivity();
 
     return (
-        <Card className={classes.root}>
+        <Card className = { classes.root }>
             <CardContent>
-                <Typography variant="h6" component="h6" className={classes.title} >
+                <Typography variant="h6"
+                            component="h6"
+                            className = { classes.title }
+                >
                     I. Aktywność fizyczna w wolnym czasie
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                    <ol style={{listStyleType: 'upper-latin'}}>
-                        <li>bardzo lekka: brak aktywności fizycznej w wolnym czasie</li>
+                <Typography className = { classes.pos }
+                            color="textSecondary"
+                >
+                    <ol style = { { listStyleType: 'upper-latin' } }>
+                        <li>
+                            bardzo lekka: brak aktywności fizycznej w wolnym czasie
+                        </li>
                         <li>
                             lekka: np. spacer, rekreacyjna jazda na rowerze, praca w ogródku, wykonywana
                             w przybliżeniu raz w tygodniu
@@ -49,7 +35,8 @@ export default function WorkTimeActivity() {
                             duża: regularne intensywne ćwiczenia więcej niż raz w tygodniu, np. intensywne
                             spacery lub intensywna jazda na rowerze, albo uprawianie sportu
                         </li>
-                        <li>intensywna: ciężka aktywność fizyczna kilka razy w tygodniu</li>
+                        <li>intensywna: ciężka aktywność fizyczna kilka razy w tygodniu
+                        </li>
                     </ol>
                 </Typography>
             </CardContent>
