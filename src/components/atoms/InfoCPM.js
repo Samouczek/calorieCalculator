@@ -3,7 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import React from 'react';
-import theme from "../atoms/theme";
+import theme from "../../style/theme";
 import StyleInfoCPM from "../../style/StyleInfoCPM";
 
 export default function InfoCPM() {

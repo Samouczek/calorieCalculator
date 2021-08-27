@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import theme from "../components/atoms/theme";
+import theme from "./theme";
 
 const StyleInfoPPM = makeStyles({
     root: {

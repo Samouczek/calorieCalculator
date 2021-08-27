@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import theme from "../atoms/theme";
+import theme from "../../style/theme";
 
 const useStyles = makeStyles({
     root: {

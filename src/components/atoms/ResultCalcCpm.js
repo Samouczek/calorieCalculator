@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import React from "react";
-import theme from "./theme";
+import theme from "../../style/theme";
 import calculateProteinCarboFat from "../../logics/calculateProteinCarboFat";
 
 const useStyles = makeStyles({

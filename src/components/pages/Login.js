@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Copyright from "../organisms/Copyright";
-import theme from "../atoms/theme";
+import theme from "../../style/theme";
 import {ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
