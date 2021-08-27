@@ -31,13 +31,11 @@ export default function PPMForm({getParameters}) {
     const [bodyAge, setBodyAge] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleChange = (event) => {
-        setChooseSex(event.target.value);
-    };
+    const handleChange = (event) => setChooseSex(event.target.value);
 
     const handleCLick = (event) => {
         event.preventDefault();
-        if (validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0){
+        if (validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0) {
             setPpmResult(calculatePpm(chooseSex,bodyWeight, bodyGrowth, bodyAge));
             if (typeof getParameters === 'function') {
                 getParameters(ppmResult, bodyWeight);
@@ -49,20 +47,14 @@ export default function PPMForm({getParameters}) {
 
     return (
         <ThemeProvider theme = {theme}>
-            <Container component = "main"
-                       maxWidth = "lg"
-            >
+            <Container component = "main" maxWidth = "lg">
                 <div className = { classes.paper }>
-                    <Typography variant="h6"
-                                gutterBottom
-                                className = { classes.header }
-                    >
+                    <Typography variant="h6" gutterBottom className = { classes.header }>
                         Wyliczenie podstawowej przemiany materii PPM
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6} md={3}>
-                            <InputLabel id="demo-mutiple-checkbox-label"
-                                        required>
+                            <InputLabel id="demo-mutiple-checkbox-label" required>
                                 płeć
                             </InputLabel>
                             <Select
@@ -91,7 +83,7 @@ export default function PPMForm({getParameters}) {
                                 onChange = { event => setBodyWeight(event.target.value) }
                             />
                         </Grid>
-                        <Grid item  xs={12} sm={6} md={3}>
+                        <Grid item xs={12} sm={6} md={3}>
                             <TextField
                                 required
                                 id = "bodyGrowth"
@@ -113,7 +105,7 @@ export default function PPMForm({getParameters}) {
                                 onChange = { event => setBodyAge(event.target.value) }
                             />
                         </Grid>
-                        <Grid item  xs={12} sm={8} md={9} lg={10}>
+                        <Grid item xs={12} sm={8} md={9} lg={10}>
                             <div className = {classes.root}>{
                                 (showAlert)
                                 &&
@@ -142,11 +134,10 @@ export default function PPMForm({getParameters}) {
                                         gutterBottom
                                         className = { classes.result }
                             >
-                                Twoja podstawowa przemiana materia (PPM) wynosi
-                                <span className = { classes.resultNumber }>
-                                    { ppmResult }
-                                </span>
-                                kalorii.
+                                Twoja podstawowa przemiana materia (PPM) wynosi: <span
+                                className = { classes.resultNumber }>
+                                    {ppmResult}
+                                </span> kalorii.
                             </Typography>}
                         </Grid>
                     </Grid>

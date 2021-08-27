@@ -15,7 +15,8 @@ export default function Profile(){
     const[bodyWeight, setBodyWeight] = useState(false);
 
     const handleParameters = (ppmParameter, bodyWeightParameter) => {
-        return [setPpmValue(ppmParameter), setBodyWeight(bodyWeightParameter)];
+        setPpmValue(ppmParameter);
+        setBodyWeight(bodyWeightParameter);
     }
 
     return  <Container component="main" maxWidth="lg">

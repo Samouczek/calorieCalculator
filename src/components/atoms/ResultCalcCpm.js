@@ -8,13 +8,10 @@ export default function ResultCalcCpm({cpmResult, palValue, bodyWeight}){
 
     return <div className = {classes.root}>
                 <Typography variant="h5" gutterBottom>
-                    Twoja szacowana całkowita przemiana materia (CPM) wynosi
-                    <span
-                        className = {classes.resultNumber}
-                    >
+                    Twoja szacowana całkowita przemiana materia (CPM) wynosi <span
+                        className = {classes.resultNumber}>
                         { cpmResult }
-                    </span>
-                    kalorii.
+                    </span> kalorii.
                 </Typography>
                 <Typography variant="h6"
                             gutterBottom

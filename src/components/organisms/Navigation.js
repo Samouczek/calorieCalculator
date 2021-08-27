@@ -41,14 +41,10 @@ export default function Navigation( { username } ) {
                 </Button>
             </MenuItem>
             <MenuItem>
-                <Button color="inherit">
-                    Kalorie
-                </Button>
+                <Button color="inherit">Kalorie</Button>
             </MenuItem>
             <MenuItem>
-                <Button color="inherit">
-                    Pomiar ciała
-                </Button>
+                <Button color="inherit"> Pomiar ciała</Button>
             </MenuItem>
             <MenuItem>
                 <Button color="inherit">
@@ -61,14 +57,8 @@ export default function Navigation( { username } ) {
                 </Button>
             </MenuItem>
             <MenuItem>
-                <Button color = {'inherit'}
-                        className = { classes.menuButton }
-                >
-                    <i className = "material-icons"
-                    >
-                        account_circle
-                    </i>
-                    { username ? username: 'Zaloguj' }
+                <Button color = {'inherit'} className = { classes.menuButton }>
+                    <i className = "material-icons">account_circle</i> { username ? username: 'Zaloguj' }
                 </Button>
             </MenuItem>
         </Menu>
@@ -87,11 +77,7 @@ export default function Navigation( { username } ) {
                     </Typography>
                     <div className = { classes.grow }/>
                     <div className = { classes.sectionDesktop }>
-                        <Button color = "inherit"
-                                className = { classes.menuButton }
-                        >
-                            Profil
-                        </Button>
+                        <Button color = "inherit" className = { classes.menuButton }>Profil</Button>
                         <Button color = "inherit"
                                 className = { classes.menuButton }
                         >
@@ -121,7 +107,6 @@ export default function Navigation( { username } ) {
                             </i>
                             {username ? username: 'Zaloguj'}
                         </Button>
-
                     </div>
                     <div className = { classes.sectionMobile }>
                         <IconButton
