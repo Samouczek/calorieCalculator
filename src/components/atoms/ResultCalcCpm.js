@@ -23,10 +23,10 @@ export default function ResultCalcCpm({cpmResult, palValue, bodyWeight}){
                             gutterBottom
                 >
                     Utrzymanie masy ciała: { cpmResult } kcal <br/>
-                    Sugerowana redukcja masy ciała (-15% - 0):
-                    { (cpmResult*0.85).toFixed(0) } kcal - { cpmResult } kcal <br/>
-                    Sugerowana kształtowanie sylwetki (0 - 15%):
-                    { cpmResult } kcal - { (cpmResult * 1.15).toFixed(0) } kcal
+                    Sugerowana redukcja masy ciała ( -15% - 0 ): { (cpmResult*0.85).toFixed(0) } kcal
+                    - { cpmResult } kcal <br/>
+                    Sugerowana kształtowanie sylwetki ( 0 - 15% ): { cpmResult } kcal
+                    - { (cpmResult * 1.15).toFixed(0) } kcal
                 </Typography>
                 <Typography
                     variant = "subtitle1"

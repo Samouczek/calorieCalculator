@@ -8,8 +8,10 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
+import NavigationButtonMobile from "../atoms/NavigationButtonMobile";
 import theme from "../../styles/theme";
 import StyleNavigation from "../../styles/StyleNavigation";
+
 
 export default function Navigation( { username } ) {
     const classes = StyleNavigation();
@@ -35,27 +37,10 @@ export default function Navigation( { username } ) {
             open = {isMobileMenuOpen}
             onClose = {handleMobileMenuClose}
         >
-            <MenuItem>
-                <Button color="inherit">
-                    Profil
-                </Button>
-            </MenuItem>
-            <MenuItem>
-                <Button color="inherit">Kalorie</Button>
-            </MenuItem>
-            <MenuItem>
-                <Button color="inherit"> Pomiar ciała</Button>
-            </MenuItem>
-            <MenuItem>
-                <Button color="inherit">
-                    Produkty
-                </Button>
-            </MenuItem>
-            <MenuItem>
-                <Button color="inherit">
-                    Jadłospis
-                </Button>
-            </MenuItem>
+            <NavigationButtonMobile title={'Profil'}/>
+            <NavigationButtonMobile title={'Kalorie'}/>
+            <NavigationButtonMobile title={'Pomiar ciała'}/>
+            <NavigationButtonMobile title={'Jadłospis'}/>
             <MenuItem>
                 <Button color = {'inherit'} className = { classes.menuButton }>
                     <i className = "material-icons">account_circle</i> { username ? username: 'Zaloguj' }
@@ -78,31 +63,20 @@ export default function Navigation( { username } ) {
                     <div className = { classes.grow }/>
                     <div className = { classes.sectionDesktop }>
                         <Button color = "inherit" className = { classes.menuButton }>Profil</Button>
-                        <Button color = "inherit"
-                                className = { classes.menuButton }
-                        >
+                        <Button color = "inherit" className = { classes.menuButton }>
                             Kalorie
                         </Button>
-                        <Button color = "inherit"
-                                className = { classes.menuButton }
-                        >
+                        <Button color = "inherit" className = { classes.menuButton }>
                             Pomiar ciała
                         </Button>
-                        <Button color = "inherit"
-                                className = { classes.menuButton }
-                        >
+                        <Button color = "inherit" className = { classes.menuButton }>
                             Produkty
                         </Button>
-                        <Button color = "inherit"
-                                className = { classes.menuButton }
-                        >
+                        <Button color = "inherit" className = { classes.menuButton }>
                             Jadłospis
                         </Button>
-                        <Button color = {'inherit'}
-                                className = { classes.menuButton }
-                        >
-                            <i className="material-icons profile_icon"
-                            >
+                        <Button color = {'inherit'} className = { classes.menuButton }>
+                            <i className="material-icons profile_icon">
                                 account_circle
                             </i>
                             {username ? username: 'Zaloguj'}
