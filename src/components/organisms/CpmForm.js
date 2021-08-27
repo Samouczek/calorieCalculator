@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/core/styles";
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
-import theme from "../../style/theme";
+import theme from "../../styles/theme";
 import { ThemeProvider } from '@material-ui/core/styles';
 import ResultCalcCpm from "../atoms/ResultCalcCpm";
 import calculateCpm from "../../logics/calculateCpm";
