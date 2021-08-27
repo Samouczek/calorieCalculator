@@ -1,7 +1,7 @@
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from "@material-ui/core/styles";
 import theme from "../components/atoms/theme";
 
- const StyleInfoCPM = makeStyles({
+const StyleInfoPPM = makeStyles({
     root: {
         minWidth: 275,
         marginBottom: theme.spacing(2),
@@ -24,8 +24,8 @@ import theme from "../components/atoms/theme";
         fontWeight: 'bold'
     },
     componentsFormula: {
-        textAlign: "center",
+        textAlign:"center",
     }
 });
 
-export default StyleInfoCPM;
+export default StyleInfoPPM();
