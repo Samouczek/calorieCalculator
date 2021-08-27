@@ -28,4 +28,4 @@ import theme from "../components/atoms/theme";
     }
 });
 
-export default StyleInfoCPM;
+export default StyleInfoCPM();

@@ -10,13 +10,13 @@ export default function InfoCPM() {
     const classes = StyleInfoCPM;
 
     return (
-        <Card className={classes().root}>
+        <Card className={classes.root}>
             <CardContent>
                 <Typography variant = "h6" component = "h2"
-                            className={classes().title} >
+                            className={classes.title} >
                     Całkowita przemiana materii (CPM)
                 </Typography>
-                <Typography className={classes().pos} color="textSecondary">
+                <Typography className={classes.pos} color="textSecondary">
                     <Grid container spacing={2}>
                         <Grid item sm={12} md={6}>
                             <p style={{textAlign: 'justify'}}>
@@ -35,10 +35,10 @@ export default function InfoCPM() {
                             </p>
                         </Grid>
                         <Grid item sm={12} md={6}>
-                            <p className={classes().formula}>
+                            <p className={classes.formula}>
                                 CPM = PPM × PAL
                             </p>
-                            <p className={classes().componentsFormula}>
+                            <p className={classes.componentsFormula}>
                                 <strong color={theme.palette.primary.dark}>
                                     PPM
                                 </strong>
