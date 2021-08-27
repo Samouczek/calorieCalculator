@@ -7,7 +7,7 @@ import theme from "../../style/theme";
 import StyleInfoCPM from "../../style/StyleInfoCPM";
 
 export default function InfoCPM() {
-    const classes = StyleInfoCPM;
+    const classes = StyleInfoCPM();
 
     return (
         <Card className={classes.root}>

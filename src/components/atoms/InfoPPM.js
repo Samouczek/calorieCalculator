@@ -6,7 +6,7 @@ import React from 'react';
 import StyleInfoPPM from "../../style/StyleInfoPPM";
 
 export default function InfoPPM() {
-    const classes = StyleInfoPPM;
+    const classes = StyleInfoPPM();
 
     return (
         <Card className = {classes.root}>
