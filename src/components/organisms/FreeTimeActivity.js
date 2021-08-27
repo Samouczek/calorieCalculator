@@ -18,7 +18,7 @@ export default function FreeTimeActivity() {
                     I. Aktywność fizyczna w pracy
                 </Typography>
                 <Typography
-                    className = {classes.pos} 
+                    className = {classes.pos}
                     color = "textSecondary"
                 >
                     <ol>
