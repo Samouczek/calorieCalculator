@@ -36,7 +36,7 @@ export default function EnhancedTableToolbar(props){
                     </IconButton>
                 </Tooltip>
             ) : (
-                <Tooltip title="Filter list">
+                <Tooltip title="Lista filtrowana">
                     <IconButton aria-label="filter list">
                         <FilterListIcon />
                     </IconButton>
