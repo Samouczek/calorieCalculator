@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
 import ResultCalcCpm from "../atoms/ResultCalcCpm";
-import calculateCpm from "../../logics/calculateCpm";
+import CalculateCpm from "../../logics/CalculateCpm";
 import theme from "../../styles/theme";
 import StyleCpmFrom from "../../styles/StyleCpmFrom";
 
@@ -21,7 +21,7 @@ export default function CPMForm({ ppm, bodyWeight }) {
     (ppm) && setPpmValue(ppm);
     const handleClick = (event) => {
         event.preventDefault();
-        setCpmResult(calculateCpm(choosePalValue,ppmValue));
+        setCpmResult(CalculateCpm(choosePalValue,ppmValue));
         console.log(ppmValue);
         console.log(choosePalValue)
     }

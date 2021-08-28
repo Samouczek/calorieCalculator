@@ -1,5 +1,5 @@
 
-export default function validationCalculatePpm( bodyWeight, bodyGrowth, bodyAge ) {
+export default function ValidationCalculatePpm(bodyWeight, bodyGrowth, bodyAge ) {
     const weight = parseInt( bodyWeight );
     const growth = parseInt( bodyGrowth );
     const age= parseInt( bodyAge );

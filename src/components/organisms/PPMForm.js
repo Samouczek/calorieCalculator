@@ -6,8 +6,8 @@ import Button from '@material-ui/core/Button';
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
-import calculatePpm from "../../logics/calculatePpm";
-import validationCalculatePpm from "../../logics/validationCalculatePpm";
+import CalculatePpm from "../../logics/CalculatePpm";
+import ValidationCalculatePpm from "../../logics/ValidationCalculatePpm";
 import theme from "../../styles/theme";
 import StylePPMForm from "../../styles/StylePPMForm";
 
@@ -35,13 +35,13 @@ export default function PPMForm({getParameters}) {
 
     const handleCLick = (event) => {
         event.preventDefault();
-        if (validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0) {
-            setPpmResult(calculatePpm(chooseSex,bodyWeight, bodyGrowth, bodyAge));
+        if (ValidationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0) {
+            setPpmResult(CalculatePpm(chooseSex,bodyWeight, bodyGrowth, bodyAge));
             if (typeof getParameters === 'function') {
                 getParameters(ppmResult, bodyWeight);
             }
         } else {
-            setShowAlert(validationCalculatePpm(bodyWeight, bodyGrowth, bodyAge));
+            setShowAlert(ValidationCalculatePpm(bodyWeight, bodyGrowth, bodyAge));
         }
     }
 

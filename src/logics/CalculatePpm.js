@@ -1,5 +1,5 @@
 
-export default function calculatePpm(sex, bodyWeight, bodyGrowth, bodyAge){
+export default function CalculatePpm(sex, bodyWeight, bodyGrowth, bodyAge){
         if (sex === 0){
             return (655.1 + (9.563 * bodyWeight) + (1.85 * bodyGrowth) - (4.676 * bodyAge)).toFixed(0);
         } else {

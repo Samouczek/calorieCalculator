@@ -1,5 +1,5 @@
 
-export default function calculateProteinCarboFat(cpmValue, bodyWeight, palValue){
+export default function CalculateProteinCarboFat(cpmValue, bodyWeight, palValue){
     switch ( palValue ) {
         case 1.4:
             return calc(cpmValue, bodyWeight, 1);
