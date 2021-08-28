@@ -6,10 +6,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
 import ResultCalcCpm from "../../atoms/resultCalculateCpm/ResultCalcCpm";
-import CalculateCpm from "../../../logics/CalculateCpm";
+import CalculateCpm from "../../../logics/profile/CalculateCpm";
 import theme from "../../../styles/theme";
 import StyleCpmFrom from "./StyleCpmFrom";
-import ValidationCalculateCpm from "../../../logics/ValidationCalculateCpm";
+import ValidationCalculateCpm from "../../../logics/profile/ValidationCalculateCpm";
 import {Alert} from "@material-ui/lab";
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
