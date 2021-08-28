@@ -1,4 +1,5 @@
 import { createTheme } from '@material-ui/core/styles';
+import {plPL} from "@material-ui/core/locale";
 
  const theme = createTheme({
     palette: {
@@ -15,6 +16,6 @@ import { createTheme } from '@material-ui/core/styles';
             contrastText: '#000',
         }
     },
-});
+}, plPL);
 
 export default theme;

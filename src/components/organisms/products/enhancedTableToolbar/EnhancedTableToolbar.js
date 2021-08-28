@@ -25,7 +25,7 @@ export default function EnhancedTableToolbar(props){
                 </Typography>
             ) : (
                 <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-                    Nutrition
+                    Tabela produktów
                 </Typography>
             )}
 
