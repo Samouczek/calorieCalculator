@@ -11,7 +11,7 @@ import ValidationCalculatePpm from "../../logics/ValidationCalculatePpm";
 import theme from "../../styles/theme";
 import StylePPMForm from "../../styles/StylePPMForm";
 
-const sex = [
+const gender = [
     {
         value: 0,
         label: 'kobieta',
@@ -36,7 +36,7 @@ export default function PPMForm({getParameters}) {
     const handleCLick = (event) => {
         event.preventDefault();
         if (ValidationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0) {
-            setPpmResult(CalculatePpm(chooseSex,bodyWeight, bodyGrowth, bodyAge));
+            setPpmResult(CalculatePpm(chooseSex, bodyWeight, bodyGrowth, bodyAge));
             if (typeof getParameters === 'function') {
                 getParameters(ppmResult, bodyWeight);
             }
@@ -63,7 +63,7 @@ export default function PPMForm({getParameters}) {
                                 input = {<Input />}
                                 fullWidth
                             >
-                                {sex.map((option) => (
+                                {gender.map((option) => (
                                     <MenuItem key={option.value} value={option.value}>
                                         {option.label}
                                     </MenuItem>

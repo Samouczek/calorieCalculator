@@ -3,6 +3,12 @@ import theme from "./theme";
 
 function StyleCpmForm(){
     return makeStyles(() => ({
+        root: {
+            width: '100%',
+            '& > * + *': {
+                marginTop: theme.spacing(2),
+            },
+        },
         paper: {
             marginTop: theme.spacing(4),
             marginBottom: theme.spacing(10),

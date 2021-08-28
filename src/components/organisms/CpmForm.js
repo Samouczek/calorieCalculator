@@ -9,6 +9,8 @@ import ResultCalcCpm from "../atoms/ResultCalcCpm";
 import CalculateCpm from "../../logics/CalculateCpm";
 import theme from "../../styles/theme";
 import StyleCpmFrom from "../../styles/StyleCpmFrom";
+import ValidationCalculateCpm from "../../logics/ValidationCalculateCpm";
+import {Alert} from "@material-ui/lab";
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
 
@@ -17,13 +19,18 @@ export default function CPMForm({ ppm, bodyWeight }) {
     const [ppmValue, setPpmValue] = useState("");
     const [choosePalValue, setChoosePalValue] = useState(false);
     const [cpmResult, setCpmResult] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     (ppm) && setPpmValue(ppm);
     const handleClick = (event) => {
         event.preventDefault();
-        setCpmResult(CalculateCpm(choosePalValue,ppmValue));
-        console.log(ppmValue);
-        console.log(choosePalValue)
+        if (ValidationCalculateCpm(choosePalValue,ppmValue) === 0){
+            setCpmResult(CalculateCpm(choosePalValue,ppmValue));
+            console.log(ppmValue);
+            console.log(choosePalValue)
+        } else {
+            setShowAlert(ValidationCalculateCpm(choosePalValue,ppmValue))
+        }
     }
 
     return (
@@ -75,6 +82,18 @@ export default function CPMForm({ ppm, bodyWeight }) {
                             >
                                 oblicz CPM
                             </Button>
+                        </Grid>
+                        <Grid item  xs={12} sm={8}>
+                            <div className = {classes.root}>{
+                                (showAlert)
+                                &&
+                                <Alert
+                                    severity="error"
+                                    onClose={() => setShowAlert(null)}
+                                >
+                                    { showAlert }
+                                </Alert>}
+                            </div>
                         </Grid>
                     </Grid>
                     { (cpmResult)
