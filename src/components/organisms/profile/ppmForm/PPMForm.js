@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
-import CalculatePpm from "../../../logics/profile/CalculatePpm";
-import ValidationCalculatePpm from "../../../logics/profile/ValidationCalculatePpm";
-import theme from "../../../styles/theme";
+import CalculatePpm from "../../../../logics/profile/CalculatePpm";
+import ValidationCalculatePpm from "../../../../logics/profile/ValidationCalculatePpm";
+import theme from "../../../../styles/theme";
 import StylePPMForm from "./StylePPMForm";
 
 const gender = [

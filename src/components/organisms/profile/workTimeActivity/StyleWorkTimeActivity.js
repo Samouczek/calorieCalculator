@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
-import theme from "../../../styles/theme";
+import theme from "../../../../styles/theme";
 
-function StyleFreeTimeActivity(){
+function StyleWorkTimeActivity() {
     return makeStyles({
         root: {
             minWidth: 275,
@@ -23,4 +23,4 @@ function StyleFreeTimeActivity(){
     });
 }
 
-export default StyleFreeTimeActivity();
+export default StyleWorkTimeActivity();

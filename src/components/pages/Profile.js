@@ -1,11 +1,11 @@
 import {Container} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import React, {useState} from "react";
-import PPMForm from "../organisms/ppmForm/PPMForm";
-import PALClassification from "../organisms/palClassification/PALClassification";
-import FreeTimeActivity from "../organisms/freeTimeActivity/FreeTimeActivity";
-import WorkTimeActivity from "../organisms/workTimeActivity/WorkTimeActivity";
-import CPMForm from "../organisms/cpmForm/CpmForm";
+import PPMForm from "../organisms/profile/ppmForm/PPMForm";
+import PALClassification from "../organisms/profile/palClassification/PALClassification";
+import FreeTimeActivity from "../organisms/profile/freeTimeActivity/FreeTimeActivity";
+import WorkTimeActivity from "../organisms/profile/workTimeActivity/WorkTimeActivity";
+import CPMForm from "../organisms/profile/cpmForm/CpmForm";
 import Copyright from "../organisms/Copyright";
 import InfoPPM from "../atoms/infoPpm/InfoPPM";
 import InfoCPM from "../atoms/infoCpm/InfoCPM";

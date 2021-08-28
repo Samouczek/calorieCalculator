@@ -1,7 +1,7 @@
-import ProductsTable from "../organisms/productsTable/ProductsTable";
+import ProductsTab from "../organisms/products/productsTab/ProductTab";
 
 export default function Products() {
     return (
-        <ProductsTable />
+        <ProductsTab />
     );
 }
