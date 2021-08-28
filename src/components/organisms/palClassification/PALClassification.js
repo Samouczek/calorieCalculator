@@ -47,8 +47,8 @@ export default function PALClassification() {
     const classes = StylePALClassification();
 
     return (
-        <ThemeProvider theme = {theme}>
-            <Card className = {classes.root}>
+        <ThemeProvider theme={theme}>
+            <Card className={classes.root}>
                 <CardContent>
                     <Typography variant="h6" component="h6" className={classes.title}>
                         III. Klasyfikacja współczynnika aktywności fizycznej (PAL)
@@ -72,11 +72,9 @@ export default function PALClassification() {
                                 </TableHead>
                                 <TableBody>
                                     { rows.map(( row) => (
-                                        <StyledTableRow key = { row.freeTimeActivity } >
-                                            <TableCell component = "th" scope = "row" align = "center">
-                                               <strong>
-                                                   { row.freeTimeActivity }
-                                               </strong>
+                                        <StyledTableRow key={row.freeTimeActivity}>
+                                            <TableCell component="th" scope="row" align="center">
+                                               <strong> {row.freeTimeActivity} </strong>
                                             </TableCell>
                                             <TableCell align="center">{row.first}</TableCell>
                                             <TableCell align="center">{row.second}</TableCell>

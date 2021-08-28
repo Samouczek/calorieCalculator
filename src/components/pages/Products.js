@@ -1,4 +1,7 @@
+import ProductsTable from "../organisms/productsTable/ProductsTable";
 
 export default function Products() {
-    return (<div> </div>);
+    return (
+        <ProductsTable />
+    );
 }
