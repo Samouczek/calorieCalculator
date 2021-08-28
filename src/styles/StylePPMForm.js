@@ -14,16 +14,16 @@ function StylePPMForm(){
             marginBottom: theme.spacing(4),
         },
         button: {
-            textAlign: "center",
+            textAlign: 'center',
         },
         header: {
             color: theme.palette.primary.dark,
-            textAlign: "center",
+            textAlign: 'center',
             paddingBottom: theme.spacing(3),
         },
         result: {
             color:  theme.palette.common.black,
-            textAlign: "center",
+            textAlign: 'center',
             paddingBottom: theme.spacing(3),
         },
         resultNumber: {

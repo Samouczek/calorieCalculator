@@ -8,11 +8,11 @@ function StyleCpmForm(){
             marginBottom: theme.spacing(10),
         },
         button: {
-            textAlign: "center",
+            textAlign: 'center',
         },
         header: {
             color: theme.palette.primary.dark,
-            textAlign: "center",
+            textAlign: 'center',
             paddingBottom: theme.spacing(3),
         }
     }));

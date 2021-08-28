@@ -10,7 +10,7 @@ function StyleInfoPPM() {
         },
         title: {
             color: theme.palette.primary.dark,
-            textAlign: "center",
+            textAlign: 'center',
         },
         pos: {
             marginBottom: 12,
@@ -25,7 +25,7 @@ function StyleInfoPPM() {
             fontWeight: 'bold'
         },
         componentsFormula: {
-            textAlign:"center",
+            textAlign:'center',
         }
     });
 }

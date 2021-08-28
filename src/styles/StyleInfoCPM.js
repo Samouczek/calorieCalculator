@@ -10,7 +10,7 @@ function StyleInfoCPM() {
         },
         title: {
             color: theme.palette.primary.dark,
-            textAlign: "center",
+            textAlign: 'center',
         },
         pos: {
             marginBottom: 12,
@@ -25,7 +25,7 @@ function StyleInfoCPM() {
             fontWeight: 'bold'
         },
         componentsFormula: {
-            textAlign: "center",
+            textAlign: 'center',
         }
     });
 }

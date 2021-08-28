@@ -50,39 +50,37 @@ export default function Navigation( { username } ) {
     );
 
     return (
-        <ThemeProvider theme = { theme }>
-        <div className = { classes.grow }>
+        <ThemeProvider theme = {theme}>
+        <div className = {classes.grow}>
             <AppBar position = "static">
                 <Toolbar>
-                    <Typography className = { classes.title }
+                    <Typography className = {classes.title}
                                 variant = "h6"
                                 noWrap
                     >
                         Kalkulator żywności
                     </Typography>
-                    <div className = { classes.grow }/>
-                    <div className = { classes.sectionDesktop }>
-                        <Button color = "inherit" className = { classes.menuButton }>Profil</Button>
-                        <Button color = "inherit" className = { classes.menuButton }>
+                    <div className = {classes.grow}/>
+                    <div className = {classes.sectionDesktop}>
+                        <Button color = "inherit" className = {classes.menuButton}>Profil</Button>
+                        <Button color = "inherit" className = {classes.menuButton}>
                             Kalorie
                         </Button>
-                        <Button color = "inherit" className = { classes.menuButton }>
+                        <Button color = "inherit" className = {classes.menuButton}>
                             Pomiar ciała
                         </Button>
-                        <Button color = "inherit" className = { classes.menuButton }>
+                        <Button color = "inherit" className = {classes.menuButton}>
                             Produkty
                         </Button>
-                        <Button color = "inherit" className = { classes.menuButton }>
+                        <Button color = "inherit" className = {classes.menuButton}>
                             Jadłospis
                         </Button>
-                        <Button color = {'inherit'} className = { classes.menuButton }>
-                            <i className="material-icons profile_icon">
-                                account_circle
-                            </i>
+                        <Button color = {'inherit'} className = {classes.menuButton}>
+                            <i className="material-icons profile_icon"> account_circle </i>
                             {username ? username: 'Zaloguj'}
                         </Button>
                     </div>
-                    <div className = { classes.sectionMobile }>
+                    <div className = {classes.sectionMobile}>
                         <IconButton
                             aria-label="show more"
                             aria-controls={mobileMenuId}

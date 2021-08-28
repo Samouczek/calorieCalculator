@@ -12,7 +12,7 @@ import StyleCpmFrom from "../../styles/StyleCpmFrom";
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
 
-export default function CPMForm({ppm,bodyWeight}) {
+export default function CPMForm({ ppm, bodyWeight }) {
     const classes = StyleCpmFrom();
     const [ppmValue, setPpmValue] = useState("");
     const [choosePalValue, setChoosePalValue] = useState(false);
@@ -83,9 +83,9 @@ export default function CPMForm({ppm,bodyWeight}) {
                     { (cpmResult)
                     &&
                     <ResultCalcCpm
-                        cpmResult = { cpmResult }
-                        bodyWeight = { bodyWeight }
-                        palValue = { choosePalValue }
+                        cpmResult = {cpmResult}
+                        bodyWeight = {bodyWeight}
+                        palValue = {choosePalValue}
                     />}
                 </div>
             </Container>

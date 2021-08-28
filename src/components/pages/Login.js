@@ -23,9 +23,7 @@ function Login() {
                     <Avatar className={classes.avatar}>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Zaloguj się
-                    </Typography>
+                    <Typography component="h1" variant="h5"> Zaloguj się </Typography>
                     <form className={classes.form} noValidate>
                         <TextField
                             variant="outlined"

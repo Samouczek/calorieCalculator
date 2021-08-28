@@ -19,23 +19,25 @@ export default function Profile(){
         setBodyWeight(bodyWeightParameter);
     }
 
-    return  <Container component="main" maxWidth="lg">
-        <InfoPPM/>
-        <PPMForm getParameters = {handleParameters}/>
-        <InfoCPM/>
-            <Grid container spacing={3}>
-                <Grid item sm={12} md={6} lg={4}>
-                    <FreeTimeActivity/>
+    return  (
+        <Container component="main" maxWidth="lg">
+            <InfoPPM/>
+            <PPMForm getParameters={handleParameters} />
+            <InfoCPM/>
+                <Grid container spacing={3}>
+                    <Grid item sm={12} md={6} lg={4}>
+                        <FreeTimeActivity/>
+                    </Grid>
+                    <Grid item sm={12} md={6} lg={4}>
+                        <WorkTimeActivity/>
+                    </Grid>
+                    <Grid item sm={12} md={12} lg={4}>
+                        <PALClassification/>
+                    </Grid>
                 </Grid>
-                <Grid item sm={12} md={6} lg={4}>
-                    <WorkTimeActivity/>
-                </Grid>
-                <Grid item sm={12} md={12} lg={4}>
-                    <PALClassification/>
-                </Grid>
-            </Grid>
-        <CPMForm bodyWeight = { bodyWeight } ppm = { ppmValue }/>
-        <Copyright/>
-    </Container>
+            <CPMForm bodyWeight={bodyWeight} ppm={ppmValue} />
+            <Copyright/>
+        </Container>
+    );
 
 }

@@ -46,17 +46,15 @@ export default function PPMForm({getParameters}) {
     }
 
     return (
-        <ThemeProvider theme = {theme}>
-            <Container component = "main" maxWidth = "lg">
-                <div className = { classes.paper }>
-                    <Typography variant="h6" gutterBottom className = { classes.header }>
+        <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="lg">
+                <div className={classes.paper}>
+                    <Typography variant="h6" gutterBottom className={classes.header}>
                         Wyliczenie podstawowej przemiany materii PPM
                     </Typography>
                     <Grid container spacing={3}>
                         <Grid item xs={12} sm={6} md={3}>
-                            <InputLabel id="demo-mutiple-checkbox-label" required>
-                                płeć
-                            </InputLabel>
+                            <InputLabel id="demo-mutiple-checkbox-label" required>płeć</InputLabel>
                             <Select
                                 labelId = "demo-mutiple-checkbox-label"
                                 id ="demo-mutiple-checkbox"
@@ -66,8 +64,8 @@ export default function PPMForm({getParameters}) {
                                 fullWidth
                             >
                                 {sex.map((option) => (
-                                    <MenuItem key = { option.value } value = { option.value }>
-                                        { option.label }
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
                                     </MenuItem>
                                 ))}
                             </Select>
@@ -130,10 +128,7 @@ export default function PPMForm({getParameters}) {
                         </Grid>
                         <Grid item xs={12}>
                             { ppmResult &&
-                            <Typography variant="h6"
-                                        gutterBottom
-                                        className = { classes.result }
-                            >
+                            <Typography variant="h6" gutterBottom className={classes.result}>
                                 Twoja podstawowa przemiana materia (PPM) wynosi: <span
                                 className = { classes.resultNumber }>
                                     {ppmResult}

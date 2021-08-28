@@ -19,7 +19,7 @@ export default function InfoCPM() {
                 <Typography className={classes.pos} color="textSecondary">
                     <Grid container spacing={2}>
                         <Grid item sm={12} md={6}>
-                            <p style={{textAlign: 'justify'}}>
+                            <p style={{ textAlign: 'justify' }}>
                                 <strong>Całkowita przemiana materii (CPM)</strong> ( <em>
                                     ang. total daily energy expenditure – TDEE
                                 </em>) –  suma wszystkich wydatków energetycznych człowieka, które ponosi podczas
