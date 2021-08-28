@@ -27,26 +27,23 @@ export default function CPMForm({ ppm, bodyWeight }) {
     }
 
     return (
-        <ThemeProvider theme = {theme}>
-            <Container component = "main" maxWidth = "lg">
-                <div className = {classes.paper}>
-                    <Typography variant = "h6" gutterBottom className = {classes.header}>
+        <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="lg">
+                <div className={classes.paper}>
+                    <Typography variant="h6" gutterBottom className={classes.header}>
                         Wyliczenie całkowitej przemiany materii CPM
                     </Typography>
-                    <Grid container spacing = {3}>
-                        <Grid item xs = {12} sm = {4} >
-                            <InputLabel
-                                id = "demo-mutiple-checkbox-label"
-                                required
-                            >
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={4} >
+                            <InputLabel id="demo-mutiple-checkbox-label" required>
                                 PAL
                             </InputLabel>
                             <Select
-                                labelId = "demo-mutiple-checkbox-label"
-                                id = "demo-mutiple-checkbox"
-                                value = {choosePalValue}
-                                onChange = {event =>  setChoosePalValue(event.target.value)}
-                                input = {<Input />}
+                                labelId="demo-mutiple-checkbox-label"
+                                id="demo-mutiple-checkbox"
+                                value={choosePalValue}
+                                onChange={event =>  setChoosePalValue(event.target.value)}
+                                input={<Input />}
                                 fullWidth
                             >
                                 {values.map((option) => (
