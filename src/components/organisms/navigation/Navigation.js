@@ -8,7 +8,7 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import NavigationButtonMobile from "../../atoms/NavigationButtonMobile";
+import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
 
@@ -37,10 +37,11 @@ export default function Navigation( { username } ) {
             open = {isMobileMenuOpen}
             onClose = {handleMobileMenuClose}
         >
-            <NavigationButtonMobile title={'Profil'}/>
-            <NavigationButtonMobile title={'Kalorie'}/>
-            <NavigationButtonMobile title={'Pomiar ciała'}/>
-            <NavigationButtonMobile title={'Jadłospis'}/>
+            <NavigationButtonMobile title={'Profil'} pathApp={'/'}/>
+            <NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>
+            <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
+            <NavigationButtonMobile title={'Produkty'} pathApp={'/products'}/>
+            <NavigationButtonMobile title={'Jadłospis'} pathApp={'/'}/>
             <MenuItem>
                 <Button color = {'inherit'} className = { classes.menuButton }>
                     <i className = "material-icons">account_circle</i> { username ? username: 'Zaloguj' }
