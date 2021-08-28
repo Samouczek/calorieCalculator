@@ -7,9 +7,10 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PropTypes from "prop-types";
 import React from "react";
+import UseToolbarStyles from "./UseToolbarStyles";
 
 export default function EnhancedTableToolbar(props){
-    const classes = useToolbarStyles();
+    const classes = UseToolbarStyles();
     const { numSelected } = props;
 
     return (

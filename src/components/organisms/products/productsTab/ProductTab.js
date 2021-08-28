@@ -23,7 +23,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import getComparator from "../../../../logics/products/getComparator";
 import stableSort from "../../../../logics/products/stableSort";
 import EnhancedTableHead from "../EnhancedTableHead";
-import EnhancedTableToolbar from "../EnhancedTableToolbar";
+import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
 
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -46,25 +46,6 @@ const rows = [
     createData("Baton Snickers", 481.0, 8.6, 60.0, 22.0),
 ];
 
-const useToolbarStyles = makeStyles((theme) => ({
-    root: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(1),
-    },
-    highlight:
-        theme.palette.type === 'light'
-            ? {
-                color: theme.palette.secondary.main,
-                backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-            }
-            : {
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.secondary.dark,
-            },
-    title: {
-        flex: '1 1 100%',
-    },
-}));
 
 
 const useStyles = makeStyles((theme) => ({
