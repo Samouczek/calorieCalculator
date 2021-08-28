@@ -58,19 +58,21 @@ export default function Navigation( { username } ) {
                                 variant = "h6"
                                 noWrap
                     >
-                        Kalkulator żywności
+                        Kalkulator kalorii
                     </Typography>
                     <div className = {classes.grow}/>
                     <div className = {classes.sectionDesktop}>
-                        <Button color = "inherit" className = {classes.menuButton}>Profil</Button>
+                        <Button color = "inherit" className={classes.menuButton}>
+                            <a href={'/'} className={classes.anchorLink}>Profil</a>
+                        </Button>
                         <Button color = "inherit" className = {classes.menuButton}>
                             Kalorie
                         </Button>
                         <Button color = "inherit" className = {classes.menuButton}>
-                            Pomiar ciała
+                           Pomiar ciała
                         </Button>
-                        <Button color = "inherit" className = {classes.menuButton}>
-                            Produkty
+                        <Button color = "inherit" className={classes.menuButton}>
+                            <a href={'/products'} className={classes.anchorLink}>Produkty </a>
                         </Button>
                         <Button color = "inherit" className = {classes.menuButton}>
                             Jadłospis

@@ -28,6 +28,10 @@ function StyleNavigation(){
                 display: 'none',
             },
         },
+       anchorLink: {
+            textDecoration: 'none',
+            color: theme.palette.common.white,
+       }
     }));
 }
 
