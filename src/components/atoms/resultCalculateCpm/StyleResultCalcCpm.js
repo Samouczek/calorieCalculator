@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import theme from "./theme";
+import theme from "../../../styles/theme";
 
 function StyleResultCalcCpm(){
     return makeStyles({

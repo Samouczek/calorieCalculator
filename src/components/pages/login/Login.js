@@ -8,9 +8,9 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Copyright from "../organisms/Copyright";
-import theme from "../../styles/theme";
-import StyleLogin from "../../styles/StyleLogin";
+import Copyright from "../../organisms/Copyright";
+import theme from "../../../styles/theme";
+import StyleLogin from "./StyleLogin";
 
 function Login() {
     const classes = StyleLogin();

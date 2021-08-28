@@ -2,7 +2,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import StyleFreeTimeActivity from "../../styles/StyleFreeTimeActivity";
+import StyleFreeTimeActivity from "./StyleFreeTimeActivity";
 
 export default function FreeTimeActivity() {
     const classes = StyleFreeTimeActivity();

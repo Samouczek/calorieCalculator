@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import StyleWorkTimeActivity from "../../styles/StyleWorkTimeActivity";
+import StyleWorkTimeActivity from "./StyleWorkTimeActivity";
 
 export default function WorkTimeActivity() {
     const classes = StyleWorkTimeActivity();

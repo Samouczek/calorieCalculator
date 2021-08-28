@@ -1,16 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
-import theme from "./theme";
+import theme from "../../../styles/theme";
 
-function StyleWorkTimeActivity() {
+function StylePALClassification(){
     return makeStyles({
         root: {
             minWidth: 275,
             marginBottom: theme.spacing(1),
             marginTop: theme.spacing(1),
             [theme.breakpoints.up('md')]: {
-                minHeight: 470,
-            },
-            [theme.breakpoints.up('lg')]: {
                 minHeight: 500,
             },
         },
@@ -20,7 +17,10 @@ function StyleWorkTimeActivity() {
         pos: {
             marginBottom: 12,
         },
+        table: {
+            minWidth: 300,
+        },
     });
 }
 
-export default StyleWorkTimeActivity();
+export default StylePALClassification();

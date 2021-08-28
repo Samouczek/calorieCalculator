@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import CalculateProteinCarboFat from "../../logics/CalculateProteinCarboFat";
-import StyleResultCalcCpm from "../../styles/StyleResultCalcCpm";
+import StyleResultCalcCpm from "./resultCalculateCpm/StyleResultCalcCpm";
 
 function DisplayMacronutrientsInCalcCpm({ cpmResult, bodyWeight, palValue }){
     const classes = StyleResultCalcCpm();

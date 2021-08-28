@@ -1,8 +1,8 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {Container} from "@material-ui/core";
 import NotFound from "./components/pages/NotFound";
-import Navigation from "./components/organisms/Navigation";
-import Login from "./components/pages/Login";
+import Navigation from "./components/organisms/navigation/Navigation";
+import Login from "./components/pages/login/Login";
 import Profile from "./components/pages/Profile";
 
 function App() {

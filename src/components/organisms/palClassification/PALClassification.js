@@ -11,8 +11,8 @@ import {ThemeProvider } from '@material-ui/core/styles';
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import theme from "../../styles/theme";
-import StylePALClassification from "../../styles/StylePALClassification";
+import theme from "../../../styles/theme";
+import StylePALClassification from "./StylePALClassification";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {

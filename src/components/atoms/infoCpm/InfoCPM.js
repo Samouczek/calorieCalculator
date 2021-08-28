@@ -3,8 +3,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import React from 'react';
-import theme from "../../styles/theme";
-import StyleInfoCPM from "../../styles/StyleInfoCPM";
+import theme from "../../../styles/theme";
+import StyleInfoCPM from "./StyleInfoCPM";
 
 export default function InfoCPM() {
     const classes = StyleInfoCPM();

@@ -8,9 +8,9 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import NavigationButtonMobile from "../atoms/NavigationButtonMobile";
-import theme from "../../styles/theme";
-import StyleNavigation from "../../styles/StyleNavigation";
+import NavigationButtonMobile from "../../atoms/NavigationButtonMobile";
+import theme from "../../../styles/theme";
+import StyleNavigation from "./StyleNavigation";
 
 
 export default function Navigation( { username } ) {

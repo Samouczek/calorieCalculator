@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import StyleResultCalcCpm from "../../styles/StyleResultCalcCpm";
-import DisplayMacronutrientsInCalcCpm from "./DisplayMacronutrientsInCalcCpm";
+import StyleResultCalcCpm from "./StyleResultCalcCpm";
+import DisplayMacronutrientsInCalcCpm from "../DisplayMacronutrientsInCalcCpm";
 
 export default function ResultCalcCpm({cpmResult, palValue, bodyWeight}){
     const classes = StyleResultCalcCpm();

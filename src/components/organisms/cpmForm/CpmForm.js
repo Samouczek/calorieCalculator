@@ -5,11 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import ResultCalcCpm from "../atoms/ResultCalcCpm";
-import CalculateCpm from "../../logics/CalculateCpm";
-import theme from "../../styles/theme";
-import StyleCpmFrom from "../../styles/StyleCpmFrom";
-import ValidationCalculateCpm from "../../logics/ValidationCalculateCpm";
+import ResultCalcCpm from "../../atoms/resultCalculateCpm/ResultCalcCpm";
+import CalculateCpm from "../../../logics/CalculateCpm";
+import theme from "../../../styles/theme";
+import StyleCpmFrom from "./StyleCpmFrom";
+import ValidationCalculateCpm from "../../../logics/ValidationCalculateCpm";
 import {Alert} from "@material-ui/lab";
 
 const values = [1.4,1.5,1.6,1.7,1.8,1.9,2.0,2.1,2.2,2.3];
@@ -26,8 +26,6 @@ export default function CPMForm({ ppm, bodyWeight }) {
         event.preventDefault();
         if (ValidationCalculateCpm(choosePalValue,ppmValue) === 0){
             setCpmResult(CalculateCpm(choosePalValue,ppmValue));
-            console.log(ppmValue);
-            console.log(choosePalValue)
         } else {
             setShowAlert(ValidationCalculateCpm(choosePalValue,ppmValue))
         }
