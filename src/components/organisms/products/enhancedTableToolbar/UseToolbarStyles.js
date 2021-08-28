@@ -1,7 +1,8 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
+import theme from "../../../../styles/theme";
 
 export default function UseToolbarStyles(){
-    return makeStyles((theme) => ({
+    return makeStyles(() => ({
         root: {
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(1),

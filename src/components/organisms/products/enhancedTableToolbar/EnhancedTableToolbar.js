@@ -7,10 +7,32 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PropTypes from "prop-types";
 import React from "react";
-import UseToolbarStyles from "./UseToolbarStyles";
+import {lighten, makeStyles} from "@material-ui/core/styles";
+import theme from "../../../../styles/theme";
+
+const useStyle = makeStyles(() => ({
+    root: {
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(1),
+    },
+    highlight:
+        theme.palette.type === 'light'
+            ? {
+                color: theme.palette.secondary.main,
+                backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+            }
+            : {
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.secondary.dark,
+            },
+    title: {
+                flex: '1 1 100%',
+                color: theme.palette.primary.dark,
+            },
+}));
 
 export default function EnhancedTableToolbar(props){
-    const classes = UseToolbarStyles();
+    const classes = useStyle();
     const { numSelected } = props;
 
     return (
@@ -24,7 +46,7 @@ export default function EnhancedTableToolbar(props){
                     {numSelected} zaznaczono
                 </Typography>
             ) : (
-                <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+                <Typography className={classes.title} variant="h6" id="tableTitle" component="div" >
                     Tabela produktów
                 </Typography>
             )}
