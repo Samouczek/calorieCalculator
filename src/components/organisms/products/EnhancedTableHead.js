@@ -27,6 +27,10 @@ const useStyle = makeStyles((theme) => ({
             top: 20,
             width: 1,
         },
+    head: {
+        backgroundColor: theme.palette.secondary.dark,
+        color: theme.palette.common.white,
+    },
     }));
 
 export default function EnhancedTableHead(props) {

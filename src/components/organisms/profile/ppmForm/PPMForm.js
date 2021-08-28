@@ -24,19 +24,19 @@ const gender = [
 
 export default function PPMForm({getParameters}) {
     const classes = StylePPMForm();
-    const [chooseSex, setChooseSex] = React.useState(0);
+    const [chooseGender, setChooseGender] = React.useState(0);
     const [ppmResult, setPpmResult] = useState(false);
     const [bodyWeight, setBodyWeight] = useState(false);
     const [bodyGrowth, setBodyGrowth] = useState(false);
     const [bodyAge, setBodyAge] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleChange = (event) => setChooseSex(event.target.value);
+    const handleChange = (event) => setChooseGender(event.target.value);
 
     const handleCLick = (event) => {
         event.preventDefault();
         if (ValidationCalculatePpm(bodyWeight, bodyGrowth, bodyAge) === 0) {
-            setPpmResult(CalculatePpm(chooseSex, bodyWeight, bodyGrowth, bodyAge));
+            setPpmResult(CalculatePpm(chooseGender, bodyWeight, bodyGrowth, bodyAge));
             if (typeof getParameters === 'function') {
                 getParameters(ppmResult, bodyWeight);
             }
@@ -58,7 +58,7 @@ export default function PPMForm({getParameters}) {
                             <Select
                                 labelId = "demo-mutiple-checkbox-label"
                                 id ="demo-mutiple-checkbox"
-                                value = { chooseSex }
+                                value = { chooseGender }
                                 onChange = { handleChange }
                                 input = {<Input />}
                                 fullWidth

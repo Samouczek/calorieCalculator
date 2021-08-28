@@ -1,8 +1,11 @@
 import ProductsTab from "../organisms/products/productsTab/ProductTab";
-import {MuiThemeProvider} from "@material-ui/core";
+import ProductForm from "../organisms/products/productForm/ProductForm";
 
 export default function Products() {
     return (
-        <ProductsTab />
+        <>
+            <ProductForm />
+            <ProductsTab />
+        </>
     );
 }
