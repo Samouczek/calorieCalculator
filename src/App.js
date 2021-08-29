@@ -5,6 +5,7 @@ import Navigation from "./components/organisms/navigation/Navigation";
 import Login from "./components/pages/login/Login";
 import Profile from "./components/pages/Profile";
 import Products from "./components/pages/Products";
+import {LOG_IN, PRODUCTS} from "./constants/Route";
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
           <Navigation username={"Kasia"}/>
         <Switch>
             <Route exact path="/" component={Profile} />
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/products" component={Products}/>
+            <Route exact path={LOG_IN} component={Login}/>
+            <Route exact path={PRODUCTS} component={Products}/>
             <Route component={NotFound} />
         </Switch>
           </Container>

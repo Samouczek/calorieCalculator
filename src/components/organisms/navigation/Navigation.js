@@ -11,6 +11,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
+import {PRODUCTS} from "../../../constants/Route";
 
 
 export default function Navigation( { username } ) {
@@ -40,7 +41,7 @@ export default function Navigation( { username } ) {
             <NavigationButtonMobile title={'Profil'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
-            <NavigationButtonMobile title={'Produkty'} pathApp={'/products'}/>
+            <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Jadłospis'} pathApp={'/'}/>
             <MenuItem>
                 <Button color = {'inherit'} className = { classes.menuButton }>
@@ -73,7 +74,7 @@ export default function Navigation( { username } ) {
                            Pomiar ciała
                         </Button>
                         <Button color = "inherit" className={classes.menuButton}>
-                            <a href={'/products'} className={classes.anchorLink}>Produkty </a>
+                            <a href={PRODUCTS} className={classes.anchorLink}>Produkty </a>
                         </Button>
                         <Button color = "inherit" className = {classes.menuButton}>
                             Jadłospis
