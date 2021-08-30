@@ -14,10 +14,13 @@ import {PRODUCTS} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
 
-export default function Navigation( { username } ) {
+export default function Navigation() {
     const classes = StyleNavigation();
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const [logout, setLogout] = useState(false);
+
+    const handleUserLogout = (user) => setLogout(user);
 
     console.log(firebase);
     const handleMobileMenuClose = () => {
@@ -44,7 +47,7 @@ export default function Navigation( { username } ) {
             <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Jadłospis'} pathApp={'/'}/>
-            <ButtonUserLogoutMenu username={username}/>
+            <ButtonUserLogoutMenu username={logout} isLogout={handleUserLogout}/>
         </Menu>
     );
 
@@ -76,7 +79,7 @@ export default function Navigation( { username } ) {
                         <Button color = "inherit" className = {classes.menuButton}>
                             Jadłospis
                         </Button>
-                        <ButtonUserLogoutMenu username={username}/>
+                        <ButtonUserLogoutMenu username={logout} logout={handleUserLogout}/>
                     </div>
                     <div className = {classes.sectionMobile}>
                         <IconButton

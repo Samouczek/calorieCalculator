@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import {ThemeProvider } from '@material-ui/core/styles';
@@ -9,11 +9,19 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Copyright from "../../organisms/Copyright";
+import {LOG_IN} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleLogin from "./StyleLogin";
 
+
 function Login() {
     const classes = StyleLogin();
+    const [username, setUsername] = useState(false);
+    const [linking, setLinking] = useState(LOG_IN);
+
+    const handleClick = (event) => {
+        event.preventDefault();
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -34,6 +42,7 @@ function Login() {
                             label="Imię"
                             name="username"
                             autoFocus
+                            onChange={(event) => setUsername(event)}
                         />
                         <Button
                             type="submit"
@@ -41,8 +50,9 @@ function Login() {
                             variant="contained"
                             color="primary"
                             className={classes.submitLog}
+                            onClick={handleClick}
                         >
-                            Zaloguj
+                            <a href={linking} className={classes.anchorLink}>Zaloguj</a>
                         </Button>
                         <Button
                             type="submit"
@@ -50,6 +60,7 @@ function Login() {
                             variant="contained"
                             color="primary"
                             className={classes.submitCancel}
+                            onClick={() => setUsername(false)}
                         >
                             Anuluj
                         </Button>

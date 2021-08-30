@@ -12,7 +12,7 @@ import InfoCPM from "../atoms/infoCpm/InfoCPM";
 
 export default function Profile(){
     const [ppmValue, setPpmValue] = useState(false);
-    const[bodyWeight, setBodyWeight] = useState(false);
+    const [bodyWeight, setBodyWeight] = useState(false);
 
     const handleParameters = (ppmParameter, bodyWeightParameter) => {
         setPpmValue(ppmParameter);

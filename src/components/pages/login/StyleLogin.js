@@ -23,6 +23,10 @@ function StyleLogin() {
         submitCancel: {
             margin: theme.spacing(1, 0, 2),
         },
+        anchorLink: {
+            textDecoration: 'none',
+            color: theme.palette.common.white,
+        }
     }));
 }
 
