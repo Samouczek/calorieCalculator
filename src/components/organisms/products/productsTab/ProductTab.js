@@ -18,8 +18,8 @@ import StyleProductTab from "./StyleProductTab";
 
 import theme from "../../../../styles/theme";
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+function createData(name, calories, proteins, carbs, fats) {
+    return { name, calories,proteins, carbs,  fats };
 }
 
 const rows = [

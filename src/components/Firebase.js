@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore,  collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -9,6 +8,8 @@ const firebaseConfig = {
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
+const firebase = require("firebase");
+require("firebase/firestore");
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = firebase.firestore();

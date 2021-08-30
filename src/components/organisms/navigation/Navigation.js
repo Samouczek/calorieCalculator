@@ -12,6 +12,7 @@ import NavigationButtonMobile from "../../atoms/navigationButtonMobile/Navigatio
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
 import {PRODUCTS} from "../../../constants/Route";
+import firebase from "firebase/compat";
 
 
 export default function Navigation( { username } ) {
@@ -19,6 +20,7 @@ export default function Navigation( { username } ) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+    console.log(firebase);
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
