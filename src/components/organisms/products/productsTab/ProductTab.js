@@ -151,9 +151,9 @@ export default function ProductsTab() {
                                                 {row.name}
                                             </TableCell>
                                             <TableCell align="right">{row.calories}</TableCell>
-                                            <TableCell align="right">{row.fat}</TableCell>
+                                            <TableCell align="right">{row.proteins}</TableCell>
                                             <TableCell align="right">{row.carbs}</TableCell>
-                                            <TableCell align="right">{row.protein}</TableCell>
+                                            <TableCell align="right">{row.fats}</TableCell>
                                         </TableRow>
                                     );
                                 })}
