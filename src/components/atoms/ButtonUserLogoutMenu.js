@@ -19,7 +19,7 @@ const styled= makeStyles(() => ({
 function ButtonUserLogoutMenu( {username , isLogout}) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [userName, setUserName] = useState(username);
-
+    console.log("ButtonUser " + userName)
     const classes = styled();
 
     const handleClick = (event) => {

@@ -14,15 +14,22 @@ import StyleLogin from "./StyleLogin";
 import ValidationLogin from "../../../logics/login/ValidationLogin";
 import {Alert} from "@material-ui/lab";
 
-function Login() {
+function Login({userLogIn}) {
     const [username, setUsername] = useState(false);
     const classes = StyleLogin();
     const [showAlert, setShowAlert] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("Kliknięte  " +username);
         if (ValidationLogin(username) === 0) {
-            window.location.href='/';
+            console.log("Login2 " +username);
+            if (typeof userLogIn === 'function'){
+                userLogIn(username);
+                console.log("Login " +username);
+            }
+
+           // window.location.href=`/`;
         } else {
             setShowAlert(ValidationLogin(username));
         }

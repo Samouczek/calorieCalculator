@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,15 +14,17 @@ import {PRODUCTS} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
 
-export default function Navigation() {
+export default function Navigation({username}) {
     const classes = StyleNavigation();
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-    const [logout, setLogout] = useState(false);
-
+    const [logout, setLogout] = useState(username);
+    console.log("ChildApp: " + username)
+    console.log("Navigation: " + logout);
     const handleUserLogout = (user) => setLogout(user);
 
-    console.log(firebase);
+    useEffect(() => setLogout(username),)
+
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };

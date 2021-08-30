@@ -6,16 +6,25 @@ import Login from "./components/pages/login/Login";
 import Profile from "./components/pages/Profile";
 import Products from "./components/pages/Products";
 import {LOG_IN, PRODUCTS} from "./constants/Route";
+import {useState} from "react";
 
 function App() {
+    const [userName, setUserName] = useState(false);
+    console.log("App: " + userName)
+    const userLogIn = (user) => {
+      setUserName(user);
+    }
+
   return (
     <>
       <BrowserRouter>
           <Container maxWidth="lg">
-          <Navigation username={"Kasia"}/>
+          <Navigation username={userName}/>
         <Switch>
             <Route exact path="/" component={Profile} />
-            <Route exact path={LOG_IN} component={Login}/>
+            <Route exact path={LOG_IN}>
+                <Login userLogIn={userLogIn}/>
+            </Route>
             <Route exact path={PRODUCTS} component={Products}/>
             <Route component={NotFound} />
         </Switch>
