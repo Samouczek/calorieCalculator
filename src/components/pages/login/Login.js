@@ -12,15 +12,19 @@ import Copyright from "../../organisms/Copyright";
 import theme from "../../../styles/theme";
 import StyleLogin from "./StyleLogin";
 import ValidationLogin from "../../../logics/login/ValidationLogin";
+import {Alert} from "@material-ui/lab";
 
 function Login() {
     const [username, setUsername] = useState(false);
     const classes = StyleLogin();
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (ValidationLogin(username) === 0) {
             window.location.href='/';
+        } else {
+            setShowAlert(ValidationLogin(username));
         }
     }
 
@@ -45,6 +49,16 @@ function Login() {
                             autoFocus
                             onChange={event => setUsername(event.target.value)}
                         />
+                        <div className = {classes.root}>{
+                            (showAlert)
+                            &&
+                            <Alert
+                                severity={(showAlert === "Produkt został zapisany") ? "success" : "error"}
+                                onClose={() => setShowAlert(null)}
+                            >
+                                { showAlert }
+                            </Alert>}
+                        </div>
                         <Button
                             type="submit"
                             fullWidth

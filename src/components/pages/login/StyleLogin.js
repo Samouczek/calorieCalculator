@@ -3,6 +3,13 @@ import theme from "../../../styles/theme";
 
 function StyleLogin() {
     return makeStyles(() => ({
+        root: {
+            width: '100%',
+            '& > * + *': {
+                marginTop: theme.spacing(2),
+                marginBottom: theme.spacing(3),
+            },
+        },
         paper: {
             marginTop: theme.spacing(8),
             display: 'flex',
