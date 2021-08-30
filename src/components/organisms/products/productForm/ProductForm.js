@@ -6,17 +6,32 @@ import Button from '@material-ui/core/Button';
 import {Container, Input, InputLabel, MenuItem, Select} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
+import AddProductToDB from "../../../../data/AddProductToDB";
 import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
+import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
+
 
 export default function ProductForm({getParameters}) {
     const classes = StyleProductForm();
-    const [productName, setProductName] = useState(false);
-    const [productCalories, setProductCalories] = useState(false);
-    const [productProtein, setProductProtein] = useState(false);
-    const [productCarbohydrates, setProductCarbohydrates] = useState(false);
-    const [productFats, setProductFats] = useState(false);
+    const [name, setName] = useState(false);
+    const [calories, setCalories] = useState(false);
+    const [protein, setProtein] = useState(false);
+    const [carbohydrates, setCarbohydrates] = useState(false);
+    const [fats, setFats] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        if (ValidationProductForm(name, calories, protein, carbohydrates, fats) === 0) {
+            AddProductToDB(name, calories, protein, carbohydrates, fats).then(r => {
+                alert("Produkt zapisany");
+            });
+            setShowAlert("Produkt został zapisany");
+        } else {
+            setShowAlert(ValidationProductForm(name, calories, protein, carbohydrates, fats));
+        }
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -34,7 +49,7 @@ export default function ProductForm({getParameters}) {
                                 label = "nazwa produktu"
                                 fullWidth
                                 autoComplete = "given-productName"
-                                onChange = { event => setProductName(event.target.value) }
+                                onChange = { event => setName(event.target.value) }
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
@@ -45,7 +60,7 @@ export default function ProductForm({getParameters}) {
                                 label = "wartość energetyczna (kcal)"
                                 fullWidth
                                 autoComplete = "given-calories"
-                                onChange = { event => setProductCalories(event.target.value) }
+                                onChange = { event => setCalories(event.target.value) }
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={4}>
@@ -56,7 +71,7 @@ export default function ProductForm({getParameters}) {
                                 label = "białko (g)"
                                 fullWidth
                                 autoComplete = "given-protein"
-                                onChange = { event => setProductProtein(event.target.value) }
+                                onChange = { event => setProtein(event.target.value) }
                             />
                         </Grid>
                         <Grid item  xs={12} sm={6} md={4}>
@@ -67,7 +82,7 @@ export default function ProductForm({getParameters}) {
                                 label = "węglowodany (g)"
                                 fullWidth
                                 autoComplete = "given-carbohydrates"
-                                onChange = { event => setProductCarbohydrates(event.target.value) }
+                                onChange = { event => setCarbohydrates(event.target.value) }
                             />
                         </Grid>
                         <Grid item  xs={12} sm={6} md={4}>
@@ -78,7 +93,7 @@ export default function ProductForm({getParameters}) {
                                 label = "tłuszcze (g)"
                                 fullWidth
                                 autoComplete = "given-fats"
-                                onChange = { event => setProductFats(event.target.value) }
+                                onChange = { event => setFats(event.target.value) }
                             />
                         </Grid>
                         <Grid item xs={12} sm={8} md={9} lg={10}>
@@ -86,7 +101,7 @@ export default function ProductForm({getParameters}) {
                                 (showAlert)
                                 &&
                                 <Alert
-                                    severity="error"
+                                    severity={(showAlert === "Produkt został zapisany") ? "success" : "error"}
                                     onClose={() => setShowAlert(null)}
                                 >
                                     { showAlert }
@@ -99,6 +114,7 @@ export default function ProductForm({getParameters}) {
                                 variant = "contained"
                                 color = "primary"
                                 className = { classes.button }
+                                onClick={handleClick}
                             >
                                 dodaj produkt
                             </Button>

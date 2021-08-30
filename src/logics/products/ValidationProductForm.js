@@ -4,7 +4,8 @@ export default function ValidationProductForm(name, calories, protein, carbohydr
     const productProtein = parseFloat(protein);
     const productCarbo= parseFloat(carbohydrates);
     const productFats = parseFloat(fats);
-    if (name.length < 2) {
+    console.log(name);
+    if (name.length < 2 || name===false) {
         return "Nazwa powinna sie skłądać przynajmniej z dwóch znaków"
     }
     if (Number.isNaN(productCalories) || productCalories < 0) {
