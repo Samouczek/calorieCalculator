@@ -3,17 +3,16 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
+import firebase from "firebase/compat";
+import ButtonUserLogoutMenu from "../../atoms/ButtonUserLogoutMenu";
 import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
+import {PRODUCTS} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
-import {PRODUCTS} from "../../../constants/Route";
-import firebase from "firebase/compat";
-
 
 export default function Navigation( { username } ) {
     const classes = StyleNavigation();
@@ -45,11 +44,7 @@ export default function Navigation( { username } ) {
             <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Jadłospis'} pathApp={'/'}/>
-            <MenuItem>
-                <Button color = {'inherit'} className = { classes.menuButton }>
-                    <i className = "material-icons">account_circle</i> { username ? username: 'Zaloguj' }
-                </Button>
-            </MenuItem>
+            <ButtonUserLogoutMenu username={username}/>
         </Menu>
     );
 
@@ -81,10 +76,7 @@ export default function Navigation( { username } ) {
                         <Button color = "inherit" className = {classes.menuButton}>
                             Jadłospis
                         </Button>
-                        <Button color = {'inherit'} className = {classes.menuButton}>
-                            <i className="material-icons profile_icon"> account_circle </i>
-                            {username ? username: 'Zaloguj'}
-                        </Button>
+                        <ButtonUserLogoutMenu username={username}/>
                     </div>
                     <div className = {classes.sectionMobile}>
                         <IconButton
