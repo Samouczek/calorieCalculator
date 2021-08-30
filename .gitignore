@@ -248,3 +248,8 @@ fabric.properties
 
 package-lock.json
 /src/constants/process.env
+/firestore.rules
+/firestore.indexes.json
+/firebase.json
+/database.rules.json
+/.firebaserc

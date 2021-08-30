@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import firebase from "firebase/compat";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -8,8 +8,9 @@ const firebaseConfig = {
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 };
-const firebase = require("firebase");
-require("firebase/firestore");
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+
+export {db};
+export default firebase;

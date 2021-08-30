@@ -1,5 +1,5 @@
 import { collection, addDoc } from "firebase/firestore";
-
+import { db } from  ".../components/Firebase"
 async function AddProductToDB(newName, newCalories, newProteins, newCarbs, newFats) {
     try {
         const docRef = await addDoc(collection(db, "products"), {
