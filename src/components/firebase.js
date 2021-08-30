@@ -1,12 +1,14 @@
 import firebase from "firebase/compat";
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-    databaseURL: process.env.REACT_APP_DATABASE_URL,
-    projectId: process.env.REACT_APP_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    apiKey: "AIzaSyBdmRV-1C2d-EEcwJYPBlKYY9yZ4bFt_bs",
+    authDomain: "caloriescalculator-7ef6b.firebaseapp.com",
+    databaseURL: "https://caloriescalculator-7ef6b-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "caloriescalculator-7ef6b",
+    storageBucket: "caloriescalculator-7ef6b.appspot.com",
+    messagingSenderId: "453173679820",
+    appId: "1:453173679820:web:c85611de33740a373d5469",
+    measurementId: "G-281X7DQX3N"
 };
 
 firebase.initializeApp(firebaseConfig);
