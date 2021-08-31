@@ -23,7 +23,7 @@ export default function Navigation({username}) {
     console.log("Navigation: " + logout);
     const handleUserLogout = (user) => setLogout(user);
 
-    useEffect(() => setLogout(username),)
+    useEffect(() => setLogout(username))
 
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);

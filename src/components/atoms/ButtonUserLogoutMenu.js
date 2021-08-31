@@ -2,7 +2,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import {LOG_IN} from "../../constants/Route";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import theme from "../../styles/theme";
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -21,6 +21,8 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
     const [userName, setUserName] = useState(username);
     console.log("ButtonUser " + userName)
     const classes = styled();
+
+    useEffect(() => setUserName(username))
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
