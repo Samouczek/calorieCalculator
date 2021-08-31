@@ -9,9 +9,9 @@ import {makeStyles} from "@material-ui/core/styles";
 const headCells = [
     { id: 'name', numeric: false, disablePadding: true, label: 'Nazwa' },
     { id: 'calories', numeric: true, disablePadding: false, label: 'Wartość energetyczna (kcal)' },
-    { id: 'protein', numeric: true, disablePadding: false, label: 'Białko (g)' },
+    { id: 'proteins', numeric: true, disablePadding: false, label: 'Białko (g)' },
     { id: 'carbs', numeric: true, disablePadding: false, label: 'Węglowdany (g)' },
-    { id: 'fat', numeric: true, disablePadding: false, label: 'Tłuszcze(g)' },
+    { id: 'fats', numeric: true, disablePadding: false, label: 'Tłuszcze(g)' },
 ];
 
 const useStyle = makeStyles((theme) => ({
@@ -33,7 +33,7 @@ const useStyle = makeStyles((theme) => ({
     }));
 
 export default function EnhancedTableHead(props) {
-    const { classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+    const { order, orderBy,  onRequestSort } = props;
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };
@@ -71,7 +71,6 @@ export default function EnhancedTableHead(props) {
 }
 
 EnhancedTableHead.propTypes = {
-    classes: PropTypes.object.isRequired,
     onRequestSort: PropTypes.func.isRequired,
     order: PropTypes.oneOf(['asc', 'desc']).isRequired,
     orderBy: PropTypes.string.isRequired,

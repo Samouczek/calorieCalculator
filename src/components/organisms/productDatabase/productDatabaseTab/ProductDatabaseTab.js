@@ -6,14 +6,13 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import { ThemeProvider } from '@material-ui/core/styles';
 import getComparator from "../../../../logics/products/getComparator";
 import stableSort from "../../../../logics/products/stableSort";
 import EnhancedTableHead from "../EnhancedTableHead";
-import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
+import EnhancedTableToolbar from "../EnhancedTableToolbar";
 import StyleProductDatabaseTab from "./StyleProductDatabaseTab";
 import theme from "../../../../styles/theme";
 
@@ -42,7 +41,6 @@ export default function ProductsTab() {
     const classes = StyleProductDatabaseTab();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
-    const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -52,35 +50,6 @@ export default function ProductsTab() {
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(property);
     };
-
-    const handleSelectAllClick = (event) => {
-        if (event.target.checked) {
-            const newSelecteds = rows.map((n) => n.name);
-            setSelected(newSelecteds);
-            return;
-        }
-        setSelected([]);
-    };
-
-    // const handleClick = (event, name) => {
-    //     const selectedIndex = selected.indexOf(name);
-    //     let newSelected = [];
-    //
-    //     if (selectedIndex === -1) {
-    //         newSelected = newSelected.concat(selected, name);
-    //     } else if (selectedIndex === 0) {
-    //         newSelected = newSelected.concat(selected.slice(1));
-    //     } else if (selectedIndex === selected.length - 1) {
-    //         newSelected = newSelected.concat(selected.slice(0, -1));
-    //     } else if (selectedIndex > 0) {
-    //         newSelected = newSelected.concat(
-    //             selected.slice(0, selectedIndex),
-    //             selected.slice(selectedIndex + 1),
-    //         );
-    //     }
-    //
-    //     setSelected(newSelected);
-    // };
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -95,15 +64,13 @@ export default function ProductsTab() {
         setDense(event.target.checked);
     };
 
-    const isSelected = (name) => selected.indexOf(name) !== -1;
-
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     return (
         <div className={classes.root}>
             <ThemeProvider theme = {theme}>
             <Paper className={classes.paper}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <EnhancedTableToolbar />
                 <TableContainer>
                     <Table
                         className={classes.table}
@@ -112,7 +79,6 @@ export default function ProductsTab() {
                         aria-label="enhanced table"
                     >
                         <EnhancedTableHead
-                            classes={classes}
                             order={order}
                             orderBy={orderBy}
                             onRequestSort={handleRequestSort}
@@ -121,21 +87,12 @@ export default function ProductsTab() {
                             {stableSort(rows, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
-                                    const isItemSelected = isSelected(row.name);
                                     const labelId = `enhanced-table-checkbox-${index}`;
-
                                     return (
                                         <TableRow
-                                            hover
-                                            // onClick={(event) => handleClick(event, row.name)}
-                                            role="checkbox"
-                                            aria-checked={isItemSelected}
-                                            tabIndex={-1}
                                             key={row.name}
-                                            selected={isItemSelected}
                                         >
                                             <TableCell padding="checkbox">
-
                                             </TableCell>
                                             <TableCell component="th" id={labelId} scope="row" padding="none">
                                                 {row.name}

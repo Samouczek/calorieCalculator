@@ -44,8 +44,8 @@ export default function Navigation({username}) {
             onClose = {handleMobileMenuClose}
         >
             <NavigationButtonMobile title={'Profil'} pathApp={'/'}/>
-            <NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>
-            <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
+            {/*<NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>*/}
+            {/*<NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>*/}
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Baza produktów'} pathApp={DATABASE}/>
             <ButtonUserLogoutMenu username={logout} isLogout={handleUserLogout}/>
@@ -68,12 +68,12 @@ export default function Navigation({username}) {
                         <Button color = "inherit" className={classes.menuButton}>
                             <a href={'/'} className={classes.anchorLink}>Profil</a>
                         </Button>
-                        <Button color = "inherit" className = {classes.menuButton}>
-                            Kalorie
-                        </Button>
-                        <Button color = "inherit" className = {classes.menuButton}>
-                           Pomiar ciała
-                        </Button>
+                        {/*<Button color = "inherit" className = {classes.menuButton}>*/}
+                        {/*    Kalorie*/}
+                        {/*</Button>*/}
+                        {/*<Button color = "inherit" className = {classes.menuButton}>*/}
+                        {/*   Pomiar ciała*/}
+                        {/*</Button>*/}
                         <Button color = "inherit" className={classes.menuButton}>
                             <a href={PRODUCTS} className={classes.anchorLink}>Produkty </a>
                         </Button>
