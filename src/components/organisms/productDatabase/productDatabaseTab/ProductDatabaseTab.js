@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,6 +15,7 @@ import EnhancedTableHead from "../EnhancedTableHead";
 import EnhancedTableToolbar from "../EnhancedTableToolbar";
 import StyleProductDatabaseTab from "./StyleProductDatabaseTab";
 import theme from "../../../../styles/theme";
+import {getProductDatabase} from "../../../../api/productApi";
 
 function createData(name, calories, proteins, carbs, fats) {
     return { name, calories,proteins, carbs,  fats };
@@ -44,7 +45,12 @@ export default function ProductsTab() {
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [database, setDatabase] = useState([]);
 
+    useEffect( () => {
+        getProductDatabase(setDatabase,[]);
+    })
+    console.log(database);
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
