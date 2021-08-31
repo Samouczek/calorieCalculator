@@ -47,23 +47,21 @@ export default function EnhancedTableToolbar(props){
                 </Typography>
             ) : (
                 <Typography className={classes.title} variant="h6" id="tableTitle" component="div" >
-                    Tabela produktów
+                    Baza produktów
                 </Typography>
             )}
-
-            {numSelected > 0 ? (
-                <Tooltip title="Delete">
-                    <IconButton aria-label="delete">
-                        <DeleteIcon />
-                    </IconButton>
-                </Tooltip>
-            ) : (
-                <Tooltip title="Lista filtrowana">
-                    <IconButton aria-label="filter list">
-                        <FilterListIcon />
-                    </IconButton>
-                </Tooltip>
-            )}
+            {/*    <Tooltip title="Delete">*/}
+            {/*        <IconButton aria-label="delete">*/}
+            {/*            <DeleteIcon />*/}
+            {/*        </IconButton>*/}
+            {/*    </Tooltip>*/}
+            {/*) : (*/}
+            {/*    <Tooltip title="Lista filtrowana">*/}
+            {/*        <IconButton aria-label="filter list">*/}
+            {/*            <FilterListIcon />*/}
+            {/*        </IconButton>*/}
+            {/*    </Tooltip>*/}
+            {/*)}*/}
         </Toolbar>
     );
 };
