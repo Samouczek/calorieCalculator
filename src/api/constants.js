@@ -1,0 +1,1 @@
+export const API_URL = "https://pl.openfoodfacts.org/api/v0"
