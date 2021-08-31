@@ -5,8 +5,9 @@ import Navigation from "./components/organisms/navigation/Navigation";
 import Login from "./components/pages/login/Login";
 import Profile from "./components/pages/Profile";
 import Products from "./components/pages/Products";
-import {LOG_IN, PRODUCTS} from "./constants/Route";
+import {DATABASE, LOG_IN, PRODUCTS} from "./constants/Route";
 import {useState} from "react";
+import ProductDatabase from "./components/pages/ProductDatabase";
 
 function App() {
     const [userName, setUserName] = useState(false);
@@ -26,6 +27,7 @@ function App() {
                 <Login userLogIn={userLogIn}/>
             </Route>
             <Route exact path={PRODUCTS} component={Products}/>
+            <Route exact path={DATABASE} component={ProductDatabase}/>
             <Route component={NotFound} />
         </Switch>
           </Container>

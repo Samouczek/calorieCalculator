@@ -7,10 +7,9 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import firebase from "firebase/compat";
 import ButtonUserLogoutMenu from "../../atoms/ButtonUserLogoutMenu";
 import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
-import {PRODUCTS} from "../../../constants/Route";
+import {DATABASE, PRODUCTS} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
 
@@ -48,7 +47,7 @@ export default function Navigation({username}) {
             <NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
-            <NavigationButtonMobile title={'Jadłospis'} pathApp={'/'}/>
+            <NavigationButtonMobile title={'Baza produktów'} pathApp={DATABASE}/>
             <ButtonUserLogoutMenu username={logout} isLogout={handleUserLogout}/>
         </Menu>
     );
@@ -79,7 +78,7 @@ export default function Navigation({username}) {
                             <a href={PRODUCTS} className={classes.anchorLink}>Produkty </a>
                         </Button>
                         <Button color = "inherit" className = {classes.menuButton}>
-                            Jadłospis
+                            <a href={DATABASE} className={classes.anchorLink}>Baza produktów </a>
                         </Button>
                         <ButtonUserLogoutMenu username={logout} logout={handleUserLogout}/>
                     </div>

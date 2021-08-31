@@ -14,10 +14,8 @@ import getComparator from "../../../../logics/products/getComparator";
 import stableSort from "../../../../logics/products/stableSort";
 import EnhancedTableHead from "../EnhancedTableHead";
 import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
-import StyleProductTab from "./StyleProductTab";
-
+import StyleProductDatabaseTab from "./StyleProductDatabaseTab";
 import theme from "../../../../styles/theme";
-import GetProducts from "../../../../data/GetProducts";
 
 function createData(name, calories, proteins, carbs, fats) {
     return { name, calories,proteins, carbs,  fats };
@@ -41,7 +39,7 @@ const rows = [
 ];
 
 export default function ProductsTab() {
-    const classes = StyleProductTab();
+    const classes = StyleProductDatabaseTab();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);

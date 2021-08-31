@@ -22,7 +22,7 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
     console.log("ButtonUser " + userName)
     const classes = styled();
 
-    useEffect(() => setUserName(username))
+    useEffect(() => setUserName(username));
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

@@ -21,15 +21,10 @@ function Login({userLogIn}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("Kliknięte  " +username);
         if (ValidationLogin(username) === 0) {
-            console.log("Login2 " +username);
             if (typeof userLogIn === 'function'){
                 userLogIn(username);
-                console.log("Login " +username);
             }
-
-           // window.location.href=`/`;
         } else {
             setShowAlert(ValidationLogin(username));
         }
