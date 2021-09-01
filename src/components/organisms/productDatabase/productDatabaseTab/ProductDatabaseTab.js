@@ -16,27 +16,7 @@ import EnhancedTableToolbar from "../EnhancedTableToolbar";
 import StyleProductDatabaseTab from "./StyleProductDatabaseTab";
 import theme from "../../../../styles/theme";
 import {getProductDatabase} from "../../../../api/productApi";
-
-function createData(name, calories, proteins, carbs, fats) {
-    return { name, calories,proteins, carbs,  fats };
-}
-
-const rows = [
-    createData("Lays zielona cebulka", 526, 6.1, 53.0, 31.0),
-    createData("Chleb wojskowy na zakwasie", 204, 4.4, 41.0, 1.1),
-    createData("Kasza gryczana", 347, 13.50, 69.30, 3.1),
-    createData("Kasza jaglana", 351, 11.50, 71.6, 2.9),
-    createData("Ryż brązowy", 337, 7.5, 76.8, 1.9),
-    createData("Ryż basmati Supreme", 356, 8.6, 78.0, 1.0),
-    createData("Ryż jęczmienna pęczka", 343, 9, 74.9, 2),
-    createData("Twaróg Garwoliński tłusty", 151.0, 17.0, 2.7, 8.0),
-    createData("Fruvita skyr naturalny", 66.0, 12.0, 3.90, 0),
-    createData("Jajka", 139, 12.50, 0.6, 9.7),
-    createData("Banan", 97.0, 1.0, 23.5, 0.3),
-    createData("Borówki amerykańskie", 61.0, 0.6, 15.0, 0.6),
-    createData("Pryncypałki", 541.0, 6.1, 57.0, 31.0),
-    createData("Baton Snickers", 481.0, 8.6, 60.0, 22.0),
-];
+import CreateData from "../../../../api/CreateData";
 
 export default function ProductsTab() {
     const classes = StyleProductDatabaseTab();
@@ -49,9 +29,7 @@ export default function ProductsTab() {
 
     useEffect( () => (getProductDatabase(setDatabase)),[]);
 
-    console.log(database);
-    console.log(database.products.map((product)=> [product.product_name_pl, product.nutriments.energy_100g, product.nutriments.proteins_100g, product.nutriments.carbohydrates_100g, product.nutriments.fat_100g]
-    ));
+    const rows = CreateData(database);
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
