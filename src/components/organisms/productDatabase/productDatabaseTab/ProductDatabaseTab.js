@@ -26,10 +26,22 @@ export default function ProductsTab() {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [database, setDatabase] = useState([]);
+    const [pageJSON, setPageJSON] = useState(1);
+    const [pageSizeJSON, setPageSizeJSON] = useState(24);
+    const [rows, setRows] = useState([]);
 
-    useEffect( () => (getProductDatabase(setDatabase)),[]);
+   console.log(database);
+    useEffect( () => {
+        getProductDatabase(setDatabase,pageJSON);
+        // if (pageJSON <= pageSizeJSON) {
+        //     setPageJSON(prev => prev++);
+        // }
+        setRows((prevState => [...prevState,...CreateData(database)]))
+        console.log(pageJSON);
+    },[]);
 
-    const rows = CreateData(database);
+    console.log(pageJSON);
+    console.log(pageSizeJSON);
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
