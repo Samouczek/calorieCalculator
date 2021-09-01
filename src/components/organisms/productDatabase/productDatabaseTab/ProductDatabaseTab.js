@@ -47,10 +47,11 @@ export default function ProductsTab() {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [database, setDatabase] = useState([]);
 
-    useEffect( () => {
-        getProductDatabase(setDatabase,[]);
-    })
+    useEffect( () => (getProductDatabase(setDatabase)),[]);
+
     console.log(database);
+    console.log(database.products.map((product)=> [product.product_name_pl, product.nutriments.energy_100g, product.nutriments.proteins_100g, product.nutriments.carbohydrates_100g, product.nutriments.fat_100g]
+    ));
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');

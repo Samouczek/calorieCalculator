@@ -1,4 +1,3 @@
-import {API_URL} from "./constants";
 
 export const getProductDatabase = (successCallback) => {
     fetch("https://pl.openfoodfacts.org/category/sery.json", {
@@ -9,10 +8,7 @@ export const getProductDatabase = (successCallback) => {
     })
         .then((r) => r.json())
         .then((data) => {
-            if (data.error === false && typeof successCallback === "function") {
-                successCallback(data.date);
-                console.log(data);
-            }
+                successCallback(data);
         })
         .catch((err) => console.log(err));
 };

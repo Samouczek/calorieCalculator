@@ -1,1 +1,0 @@
-export const API_URL = "https://fr.openfoodfacts.org/categorie/pizzas.json"
