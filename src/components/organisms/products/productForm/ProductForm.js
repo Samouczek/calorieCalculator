@@ -6,13 +6,15 @@ import Button from '@material-ui/core/Button';
 import {Container} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { collection, addDoc } from "firebase/firestore";
 import AddProductToDB from "../../../../data/AddProductToDB";
 import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
 import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
+import {db} from "../../../firebase";
 
 
-export default function ProductForm({getParameters}) {
+export default function ProductForm({getParameters, user}) {
     const classes = StyleProductForm();
     const [name, setName] = useState(false);
     const [calories, setCalories] = useState(false);
@@ -24,9 +26,7 @@ export default function ProductForm({getParameters}) {
     const handleClick = (event) => {
         event.preventDefault();
         if (ValidationProductForm(name, calories, protein, carbohydrates, fats) === 0) {
-            AddProductToDB(name, calories, protein, carbohydrates, fats).then(r => {
-                alert("Produkt zapisany");
-            });
+            AddProductToDB(name, calories, protein, carbohydrates, fats);
             setShowAlert("Produkt został zapisany");
         } else {
             setShowAlert(ValidationProductForm(name, calories, protein, carbohydrates, fats));
