@@ -32,16 +32,18 @@ const productConverter = {
 function ReadProductsFromDB(user) {
     const productsCollection = [];
     const rows = [];
-    const docRef = db.collection("users").doc(user).collection("products");
-
-    docRef.withConverter(productConverter).get().then((products)=> {
-        products.forEach((product) => {
-            productsCollection.push(product.data());
-        })
-        productsCollection.forEach((product) => {
-            rows.push(createData(product.name, product.calories, product.proteins, product.carbs, product.fats));
-        })
-   }).catch(error => console.log('Problem z pobraniem danych ' + error));
+    
+    if(user !== false) {
+        const docRef = db.collection("users").doc(user).collection("products");
+        docRef.withConverter(productConverter).get().then((products)=> {
+            products.forEach((product) => {
+                productsCollection.push(product.data());
+            })
+            productsCollection.forEach((product) => {
+                rows.push(createData(product.name, product.calories, product.proteins, product.carbs, product.fats));
+            })
+        }).catch(error => console.log('Problem z pobraniem danych ' + error));
+    }
     return rows;
 }
 

@@ -27,7 +27,9 @@ function App() {
                             <Login userLogIn={userLogIn}/>
                         </Route>
                         <Route exact path="/" component={Profile} />
-                        <Route exact path={PRODUCTS} component={Products}/>
+                        <Route exact path={PRODUCTS}>
+                            <Products user={userName}/>
+                        </Route>
                         <Route exact path={DATABASE} component={ProductDatabase}/>
                         <Route component={NotFound} />
                     </Switch>

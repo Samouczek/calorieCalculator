@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -11,8 +11,7 @@ import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
 import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
 
-
-export default function ProductForm({getParameters, user}) {
+export default function ProductForm({confirmNewProduct}) {
     const classes = StyleProductForm();
     const [name, setName] = useState(false);
     const [calories, setCalories] = useState(false);
@@ -26,6 +25,9 @@ export default function ProductForm({getParameters, user}) {
         if (ValidationProductForm(name, calories, protein, carbohydrates, fats) === 0) {
             AddProductToDB(name, calories, protein, carbohydrates, fats);
             setShowAlert("Produkt został zapisany");
+            if (typeof confirmNewProduct === 'function') {
+                confirmNewProduct(true);
+            }
         } else {
             setShowAlert(ValidationProductForm(name, calories, protein, carbohydrates, fats));
         }
