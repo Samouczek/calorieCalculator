@@ -20,10 +20,9 @@ function Login({userLogIn}) {
     const classes = StyleLogin();
     const [username, setUsername] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+       // event.preventDefault();
         if (ValidationLogin(username) === 0) {
             if (typeof userLogIn === 'function'){
                 userLogIn(username);
@@ -72,7 +71,7 @@ function Login({userLogIn}) {
                             className={classes.submitLog}
                             onClick={handleSubmit}
                             component={NavLink}
-                            to={(username) ? PROFILE : LOG_IN}
+                            to={PROFILE}
                         >
                             Zaloguj
                         </Button>

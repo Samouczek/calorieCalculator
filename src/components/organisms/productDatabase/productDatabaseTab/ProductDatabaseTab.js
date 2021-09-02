@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -15,32 +15,15 @@ import EnhancedTableHead from "../EnhancedTableHead";
 import EnhancedTableToolbar from "../EnhancedTableToolbar";
 import StyleProductDatabaseTab from "./StyleProductDatabaseTab";
 import theme from "../../../../styles/theme";
-import {getProductDatabase} from "../../../../api/productApi";
-import CreateData from "../../../../api/CreateData";
 
-export default function ProductsTab() {
+export default function ProductsTab({rows}) {
     const classes = StyleProductDatabaseTab();
-    const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('calories');
-    const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [database, setDatabase] = useState([]);
-    const [pageJSON, setPageJSON] = useState(1);
-    const [pageSizeJSON, setPageSizeJSON] = useState(24);
-    const [rows, setRows] = useState([]);
+    const [order, setOrder] = useState('asc');
+    const [orderBy, setOrderBy] = useState('calories');
+    const [page, setPage] = useState(0);
+    const [dense, setDense] = useState(false);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
-   console.log(database);
-    useEffect( () => {
-        getProductDatabase(setDatabase);
-    },[]);
-
-    useEffect(() =>
-        setRows(CreateData(database)),
-        []);
-
-    console.log(pageJSON);
-    console.log(pageSizeJSON);
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');

@@ -17,7 +17,7 @@ const styled= makeStyles(() => ({
     }
 }));
 
-function ButtonUserLogoutMenu( {username , isLogout}) {
+function ButtonUserLogoutMenu( {username, isLogout}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [userName, setUserName] = useState(username);
     console.log("ButtonUser " + userName)
@@ -35,6 +35,7 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
 
     const handleClose = () => {
         setAnchorEl(null);
+        setUserName(false);
     };
 
     return (
@@ -72,7 +73,7 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
                 onClose={handleClose}
             >
                 <MenuItem>
-                    <Button component={NavLink} to={LOG_IN} onClick={handleClick}>Wyloguj</Button>
+                    <Button component={NavLink} to={LOG_IN} onClick={handleClose}>Wyloguj</Button>
                 </MenuItem>
             </Menu>
             }
