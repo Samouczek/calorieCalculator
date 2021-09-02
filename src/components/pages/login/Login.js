@@ -14,7 +14,7 @@ import StyleLogin from "./StyleLogin";
 import ValidationLogin from "../../../logics/login/ValidationLogin";
 import {Alert} from "@material-ui/lab";
 import {NavLink} from "react-router-dom";
-import {LOG_IN, PROFILE} from "../../../constants/Route";
+import { PROFILE} from "../../../constants/Route";
 
 function Login({userLogIn}) {
     const classes = StyleLogin();
