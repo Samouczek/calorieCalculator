@@ -24,7 +24,7 @@ export default function Products({user}) {
     return (
         <>
             <ProductForm user={user} confirmNewProduct={handlerAddProduct}/>
-            <ProductsTab rows={rows} />
+            <ProductsTab user={user} rows={rows} />
         </>
     );
 }

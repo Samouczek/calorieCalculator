@@ -17,7 +17,7 @@ import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
 import StyleProductTab from "./StyleProductTab";
 import theme from "../../../../styles/theme";
 
-export default function ProductsTab({rows}) {
+export default function ProductsTab({user,rows}) {
     const classes = StyleProductTab();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
@@ -83,7 +83,7 @@ export default function ProductsTab({rows}) {
         <div className={classes.root}>
             <ThemeProvider theme = {theme}>
             <Paper className={classes.paper}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <EnhancedTableToolbar user={user} selected={selected} />
                 <TableContainer>
                     <Table
                         className={classes.table}
@@ -106,7 +106,6 @@ export default function ProductsTab({rows}) {
                                 .map((row, index) => {
                                     const isItemSelected = isSelected(row.name);
                                     const labelId = `enhanced-table-checkbox-${index}`;
-
                                     return (
                                         <TableRow
                                             hover

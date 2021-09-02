@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import theme from "../../../../styles/theme";
+import DeleteProducts from "../../../../data/DeleteProducts";
 
 const useStyle = makeStyles(() => ({
     root: {
@@ -31,9 +32,15 @@ const useStyle = makeStyles(() => ({
             },
 }));
 
-export default function EnhancedTableToolbar(props){
+export default function EnhancedTableToolbar({user,selected}){
     const classes = useStyle();
-    const { numSelected } = props;
+    const  numSelected  = selected.length;
+
+    const handleClickDeleteIcon = () =>{
+        selected.forEach(item => {
+            DeleteProducts(user,item)
+        })
+    }
 
     return (
         <Toolbar
@@ -54,7 +61,7 @@ export default function EnhancedTableToolbar(props){
             {numSelected > 0 ? (
                 <Tooltip title="Delete">
                     <IconButton aria-label="delete">
-                        <DeleteIcon />
+                        <DeleteIcon onClick={handleClickDeleteIcon}/>
                     </IconButton>
                 </Tooltip>
             ) : (
