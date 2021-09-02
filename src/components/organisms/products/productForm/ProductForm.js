@@ -13,12 +13,12 @@ import ValidationProductForm from "../../../../logics/products/ValidationProduct
 
 export default function ProductForm({user, confirmNewProduct}) {
     const classes = StyleProductForm();
-    const [name, setName] = useState(false);
-    const [calories, setCalories] = useState(false);
-    const [protein, setProtein] = useState(false);
-    const [carbohydrates, setCarbohydrates] = useState(false);
-    const [fats, setFats] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    const [name, setName] = useState(null);
+    const [calories, setCalories] = useState(null);
+    const [protein, setProtein] = useState(null);
+    const [carbohydrates, setCarbohydrates] = useState(null);
+    const [fats, setFats] = useState(null);
+    const [showAlert, setShowAlert] = useState(null);
 
     const handleClick = (event) => {
         event.preventDefault();
@@ -27,6 +27,11 @@ export default function ProductForm({user, confirmNewProduct}) {
             setShowAlert("Produkt został zapisany");
             if (typeof confirmNewProduct === 'function') {
                 confirmNewProduct(true);
+               setName('');
+               setCalories('');
+               setProtein('');
+               setCarbohydrates('');
+               setFats('');
             }
         } else {
             setShowAlert(ValidationProductForm(name, calories, protein, carbohydrates, fats));
@@ -47,6 +52,7 @@ export default function ProductForm({user, confirmNewProduct}) {
                                 id = "productName"
                                 name = "productName"
                                 label = "nazwa produktu"
+                                value={name}
                                 fullWidth
                                 autoComplete = "given-productName"
                                 onChange = { event => setName(event.target.value) }
@@ -58,6 +64,7 @@ export default function ProductForm({user, confirmNewProduct}) {
                                 id = "productCalories"
                                 name = "productCalories"
                                 label = "wartość energetyczna (kcal)"
+                                value={calories}
                                 fullWidth
                                 autoComplete = "given-calories"
                                 onChange = { event => setCalories(event.target.value) }
@@ -69,6 +76,7 @@ export default function ProductForm({user, confirmNewProduct}) {
                                 id = "producyProtein"
                                 name = "producyProtein"
                                 label = "białko (g)"
+                                value={protein}
                                 fullWidth
                                 autoComplete = "given-protein"
                                 onChange = { event => setProtein(event.target.value) }
@@ -80,6 +88,7 @@ export default function ProductForm({user, confirmNewProduct}) {
                                 id = "carbohydrates"
                                 name = "carbohydrates"
                                 label = "węglowodany (g)"
+                                value={carbohydrates}
                                 fullWidth
                                 autoComplete = "given-carbohydrates"
                                 onChange = { event => setCarbohydrates(event.target.value) }
@@ -91,6 +100,7 @@ export default function ProductForm({user, confirmNewProduct}) {
                                 id = "productFats"
                                 name = "productFats"
                                 label = "tłuszcze (g)"
+                                value={fats}
                                 fullWidth
                                 autoComplete = "given-fats"
                                 onChange = { event => setFats(event.target.value) }
