@@ -19,8 +19,6 @@ export default function Navigation({username}) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const [logout, setLogout] = useState(username);
-    console.log("ChildApp: " + username)
-    console.log("Navigation: " + logout);
 
     const handleUserLogout = (user) => setLogout(user);
 

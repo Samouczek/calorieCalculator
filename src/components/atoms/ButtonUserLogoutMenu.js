@@ -20,7 +20,6 @@ const styled= makeStyles(() => ({
 function ButtonUserLogoutMenu( {username, isLogout}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [userName, setUserName] = useState(username);
-    console.log("ButtonUser " + userName)
     const classes = styled();
 
     useEffect(() => setUserName(username));

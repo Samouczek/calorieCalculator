@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import ProductsTab from "../organisms/productDatabase/productDatabaseTab/ProductDatabaseTab";
-import CreateData from "../../api/CreateData";
+import CreateDataFromApi from "../../api/CreateDataFromApi";
 import {getProductDatabase} from "../../api/productApi";
 
 export default function ProductDatabase() {
@@ -12,7 +12,7 @@ export default function ProductDatabase() {
     },[]);
 
     useEffect(() => {
-        setRows(CreateData(database))
+        setRows(CreateDataFromApi(database))
     },[database]);
 
     return (

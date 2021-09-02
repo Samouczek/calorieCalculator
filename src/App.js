@@ -1,13 +1,13 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {useState} from "react";
 import {Container, CssBaseline} from "@material-ui/core";
 import NotFound from "./components/pages/NotFound";
 import Navigation from "./components/organisms/navigation/Navigation";
 import Login from "./components/pages/login/Login";
 import Profile from "./components/pages/Profile";
 import Products from "./components/pages/Products";
-import {DATABASE, LOG_IN, PRODUCTS} from "./constants/Route";
-import {useState} from "react";
 import ProductDatabase from "./components/pages/ProductDatabase";
+import {DATABASE, LOG_IN, PRODUCTS} from "./constants/Route";
 
 function App() {
     const [userName, setUserName] = useState(false);
