@@ -6,12 +6,10 @@ import Button from '@material-ui/core/Button';
 import {Container} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { collection, addDoc } from "firebase/firestore";
 import AddProductToDB from "../../../../data/AddProductToDB";
 import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
 import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
-import {db} from "../../../firebase";
 
 
 export default function ProductForm({getParameters, user}) {

@@ -19,18 +19,20 @@ function App() {
   return (
     <>
       <BrowserRouter>
-          <Container maxWidth="lg">
-          <Navigation username={userName}/>
-        <Switch>
-            <Route exact path="/" component={Profile} />
-            <Route exact path={LOG_IN}>
-                <Login userLogIn={userLogIn}/>
-            </Route>
-            <Route exact path={PRODUCTS} component={Products}/>
-            <Route exact path={DATABASE} component={ProductDatabase}/>
-            <Route component={NotFound} />
-        </Switch>
-          </Container>
+          <>
+              <Container maxWidth="lg">
+              <Navigation username={userName}/>
+                <Switch>
+                    <Route exact path="/" component={Profile} />
+                    <Route exact path={LOG_IN}>
+                        <Login userLogIn={userLogIn}/>
+                    </Route>
+                    <Route exact path={PRODUCTS} component={Products}/>
+                    <Route exact path={DATABASE} component={ProductDatabase}/>
+                    <Route component={NotFound} />
+                </Switch>
+              </Container>
+          </>
       </BrowserRouter>
     </>
   );

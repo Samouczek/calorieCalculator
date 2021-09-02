@@ -1,6 +1,6 @@
 
-export const getProductDatabase = (successCallback, page) => {
-    fetch(`https://pl.openfoodfacts.org/category/sery/${page}.json`, {
+export const getProductDatabase = (successCallback) => {
+    fetch(`https://pl.openfoodfacts.org/category/sery/sery.json`, {
         method: "GET",
        headers: {
            "User-Agent": "calorieCalculator - Linux x86_64 - Version 1.0",

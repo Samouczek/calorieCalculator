@@ -9,9 +9,10 @@ import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
 import ButtonUserLogoutMenu from "../../atoms/ButtonUserLogoutMenu";
 import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
-import {DATABASE, PRODUCTS} from "../../../constants/Route";
+import {DATABASE, PRODUCTS, PROFILE} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
+import {NavLink} from "react-router-dom";
 
 export default function Navigation({username}) {
     const classes = StyleNavigation();
@@ -44,8 +45,6 @@ export default function Navigation({username}) {
             onClose = {handleMobileMenuClose}
         >
             <NavigationButtonMobile title={'Profil'} pathApp={'/'}/>
-            {/*<NavigationButtonMobile title={'Kalorie'} pathApp={'/'}/>*/}
-            {/*<NavigationButtonMobile title={'Pomiar ciała'} pathApp={'/'}/>*/}
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Baza produktów'} pathApp={DATABASE}/>
             <ButtonUserLogoutMenu username={logout} isLogout={handleUserLogout}/>
@@ -65,20 +64,14 @@ export default function Navigation({username}) {
                     </Typography>
                     <div className = {classes.grow}/>
                     <div className = {classes.sectionDesktop}>
-                        <Button color = "inherit" className={classes.menuButton}>
-                            <a href={'/'} className={classes.anchorLink}>Profil</a>
+                        <Button color = "inherit" className={classes.menuButton} component={NavLink} to={PROFILE}>
+                            Profil
                         </Button>
-                        {/*<Button color = "inherit" className = {classes.menuButton}>*/}
-                        {/*    Kalorie*/}
-                        {/*</Button>*/}
-                        {/*<Button color = "inherit" className = {classes.menuButton}>*/}
-                        {/*   Pomiar ciała*/}
-                        {/*</Button>*/}
-                        <Button color = "inherit" className={classes.menuButton}>
-                            <a href={PRODUCTS} className={classes.anchorLink}>Produkty </a>
+                        <Button color = "inherit" className={classes.menuButton} component={NavLink} to={PRODUCTS}>
+                            Produkty
                         </Button>
-                        <Button color = "inherit" className = {classes.menuButton}>
-                            <a href={DATABASE} className={classes.anchorLink}>Baza produktów </a>
+                        <Button color = "inherit" className = {classes.menuButton} component={NavLink} to={DATABASE}>
+                           Baza produktów
                         </Button>
                         <ButtonUserLogoutMenu username={logout} logout={handleUserLogout}/>
                     </div>

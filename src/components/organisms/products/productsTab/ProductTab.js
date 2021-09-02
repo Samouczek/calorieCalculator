@@ -17,6 +17,7 @@ import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
 import StyleProductTab from "./StyleProductTab";
 
 import theme from "../../../../styles/theme";
+import ReadProductsFromDB from "../../../../data/ReadProductsFromDB";
 
 function createData(name, calories, proteins, carbs, fats) {
     return { name, calories,proteins, carbs,  fats };

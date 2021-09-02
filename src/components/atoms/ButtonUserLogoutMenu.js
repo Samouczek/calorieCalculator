@@ -1,10 +1,11 @@
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
-import {LOG_IN} from "../../constants/Route";
+import {LOG_IN, PRODUCTS} from "../../constants/Route";
 import React, {useEffect, useState} from "react";
 import theme from "../../styles/theme";
 import {makeStyles} from "@material-ui/core/styles";
+import {NavLink} from "react-router-dom";
 
 const styled= makeStyles(() => ({
     menuButton: {
@@ -55,9 +56,7 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
                 onClose={handleClose}
             >
                 <MenuItem>
-                    <Button>
-                        <a href={LOG_IN} className={classes.anchorLink}>Wyloguj</a>
-                    </Button>
+                    <Button component={NavLink} to={LOG_IN}>Wyloguj</Button>
                 </MenuItem>
             </Menu>
         </MenuItem>

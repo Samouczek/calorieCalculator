@@ -32,13 +32,12 @@ export default function ProductsTab() {
 
    console.log(database);
     useEffect( () => {
-        getProductDatabase(setDatabase,pageJSON);
-        // if (pageJSON <= pageSizeJSON) {
-        //     setPageJSON(prev => prev++);
-        // }
-        setRows((prevState => [...prevState,...CreateData(database)]))
-        console.log(pageJSON);
+        getProductDatabase(setDatabase);
     },[]);
+
+    useEffect(() =>
+        setRows(CreateData(database)),
+        []);
 
     console.log(pageJSON);
     console.log(pageSizeJSON);
