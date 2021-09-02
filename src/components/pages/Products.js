@@ -1,24 +1,24 @@
 import {useEffect, useState} from "react";
 import ProductsTab from "../organisms/products/productsTab/ProductTab";
 import ProductForm from "../organisms/products/productForm/ProductForm";
-import ReadProductsFromDB from "../../data/ReadProductsFromDB";
+import GetProductsFromFirebase from "../../data/GetProductsFromFirebase";
+
 
 export default function Products({user}) {
+    const [database, setDatabase] = useState([]);
     const [rows, setRows] = useState([]);
-    const [confirmNewProduct, setConfirmNewProduct] = useState(false);
 
-    const handleAddProduct = (newProductAdded) => {
-       setConfirmNewProduct(newProductAdded)
-    }
+    useEffect( () => {
+        GetProductsFromFirebase(user,setDatabase);
+    },[]);
 
     useEffect(() => {
-         setRows(ReadProductsFromDB(user))
-    },[confirmNewProduct]);
+        setRows(database)
+    },[database]);
 
-    console.log(rows);
     return (
         <>
-            <ProductForm confirmNewProduct={handleAddProduct}/>
+            <ProductForm/>
             <ProductsTab rows={rows}/>
         </>
     );

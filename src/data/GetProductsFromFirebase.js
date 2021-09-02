@@ -29,10 +29,10 @@ const productConverter = {
     }
 };
 
-function ReadProductsFromDB(user) {
+const GetProductsFromFirebase = (user, successCallback) => {
     const productsCollection = [];
     const rows = [];
-    
+
     if(user !== false) {
         const docRef = db.collection("users").doc(user).collection("products");
         docRef.withConverter(productConverter).get().then((products)=> {
@@ -41,14 +41,16 @@ function ReadProductsFromDB(user) {
             })
             productsCollection.forEach((product) => {
                 rows.push(createData(product.name, product.calories, product.proteins, product.carbs, product.fats));
+                console.log(rows);
+
             })
+            successCallback(rows);
         }).catch(error => console.log('Problem z pobraniem danych ' + error));
     }
-    return rows;
 }
 
 function createData(name, calories, proteins, carbs, fats) {
     return { name, calories,proteins, carbs,  fats };
 }
 
-export default ReadProductsFromDB;
+export default GetProductsFromFirebase;
