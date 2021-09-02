@@ -3,10 +3,10 @@ import ProductsTab from "../organisms/products/productsTab/ProductTab";
 import ProductForm from "../organisms/products/productForm/ProductForm";
 import GetProductsFromFirebase from "../../data/GetProductsFromFirebase";
 
-
 export default function Products({user}) {
     const [database, setDatabase] = useState([]);
     const [rows, setRows] = useState([]);
+    const [confirm, setConfirm] = useState()
 
     useEffect( () => {
         GetProductsFromFirebase(user,setDatabase);
@@ -14,12 +14,16 @@ export default function Products({user}) {
 
     useEffect(() => {
         setRows(database)
-    },[database]);
+    },[database, confirm]);
+
+    const handlerAddProduct = ((confirm) => {
+        setConfirm(confirm);
+    });
 
     return (
         <>
-            <ProductForm/>
-            <ProductsTab rows={rows}/>
+            <ProductForm user={user} confirmNewProduct={handlerAddProduct}/>
+            <ProductsTab rows={rows} />
         </>
     );
 }

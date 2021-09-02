@@ -11,7 +11,7 @@ import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
 import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
 
-export default function ProductForm({confirmNewProduct}) {
+export default function ProductForm({user, confirmNewProduct}) {
     const classes = StyleProductForm();
     const [name, setName] = useState(false);
     const [calories, setCalories] = useState(false);
@@ -22,7 +22,7 @@ export default function ProductForm({confirmNewProduct}) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        if (ValidationProductForm(name, calories, protein, carbohydrates, fats) === 0) {
+        if (ValidationProductForm(user, name, calories, protein, carbohydrates, fats) === 0) {
             AddProductToDB(name, calories, protein, carbohydrates, fats);
             setShowAlert("Produkt został zapisany");
             if (typeof confirmNewProduct === 'function') {

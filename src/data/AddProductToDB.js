@@ -1,7 +1,7 @@
 import {db} from "../components/firebase";
 
 
-async function AddProductToDB(newName, newCalories, newProteins, newCarbs, newFats) {
+async function AddProductToDB(user, newName, newCalories, newProteins, newCarbs, newFats) {
     try {
         let product = {
             name: newName,
@@ -11,7 +11,7 @@ async function AddProductToDB(newName, newCalories, newProteins, newCarbs, newFa
             fats: newFats
         }
             await db.collection("users")
-                .doc("Kasia")
+                .doc(user)
                 .collection("products")
                 .add(product)
     } catch (e) {

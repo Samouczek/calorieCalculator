@@ -41,8 +41,6 @@ const GetProductsFromFirebase = (user, successCallback) => {
             })
             productsCollection.forEach((product) => {
                 rows.push(createData(product.name, product.calories, product.proteins, product.carbs, product.fats));
-                console.log(rows);
-
             })
             successCallback(rows);
         }).catch(error => console.log('Problem z pobraniem danych ' + error));
