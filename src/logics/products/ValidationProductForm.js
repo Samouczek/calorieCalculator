@@ -5,7 +5,7 @@ export default function ValidationProductForm(name, calories, protein, carbohydr
     const productCarbo= parseFloat(carbohydrates);
     const productFats = parseFloat(fats);
     if (name==='') {
-        return "Nazwa powinna sie skłądać przynajmniej z dwóch znaków"
+        return "Podaj prawidłową nazwę produktu"
     }
     if (Number.isNaN(productCalories) || productCalories < 0) {
         return "Podaj poprawną wartość odżywczą"
