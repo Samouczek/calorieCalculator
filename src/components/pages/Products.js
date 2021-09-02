@@ -6,19 +6,20 @@ import GetProductsFromFirebase from "../../data/GetProductsFromFirebase";
 export default function Products({user}) {
     const [database, setDatabase] = useState([]);
     const [rows, setRows] = useState([]);
-    const [confirm, setConfirm] = useState()
+    const [confirm, setConfirm] = useState(false)
 
     useEffect( () => {
         GetProductsFromFirebase(user,setDatabase);
-    },[]);
+    },[confirm]);
 
     useEffect(() => {
         setRows(database)
-    },[database, confirm]);
+    },[database]);
 
     const handlerAddProduct = ((confirm) => {
         setConfirm(confirm);
     });
+    console.log("confirm " + confirm)
 
     return (
         <>

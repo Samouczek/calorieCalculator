@@ -22,8 +22,8 @@ export default function ProductForm({user, confirmNewProduct}) {
 
     const handleClick = (event) => {
         event.preventDefault();
-        if (ValidationProductForm(user, name, calories, protein, carbohydrates, fats) === 0) {
-            AddProductToDB(name, calories, protein, carbohydrates, fats);
+        if (ValidationProductForm( name, calories, protein, carbohydrates, fats) === 0) {
+            AddProductToDB(user, name, calories, protein, carbohydrates, fats);
             setShowAlert("Produkt został zapisany");
             if (typeof confirmNewProduct === 'function') {
                 confirmNewProduct(true);
