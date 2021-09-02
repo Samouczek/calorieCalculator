@@ -36,6 +36,7 @@ export default function ProductsTab({rows}) {
         if (event.target.checked) {
             const newSelecteds = rows.map((n) => n.name);
             setSelected(newSelecteds);
+            console.log(newSelecteds);
             return;
         }
         setSelected([]);
