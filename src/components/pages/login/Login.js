@@ -13,11 +13,14 @@ import theme from "../../../styles/theme";
 import StyleLogin from "./StyleLogin";
 import ValidationLogin from "../../../logics/login/ValidationLogin";
 import {Alert} from "@material-ui/lab";
+import {NavLink} from "react-router-dom";
+import {LOG_IN, PROFILE} from "../../../constants/Route";
 
 function Login({userLogIn}) {
-    const [username, setUsername] = useState(false);
     const classes = StyleLogin();
+    const [username, setUsername] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -68,6 +71,8 @@ function Login({userLogIn}) {
                             color="primary"
                             className={classes.submitLog}
                             onClick={handleSubmit}
+                            component={NavLink}
+                            to={(username) ? PROFILE : LOG_IN}
                         >
                             Zaloguj
                         </Button>

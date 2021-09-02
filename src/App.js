@@ -1,5 +1,5 @@
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import {Container} from "@material-ui/core";
+import {Container, CssBaseline} from "@material-ui/core";
 import NotFound from "./components/pages/NotFound";
 import Navigation from "./components/organisms/navigation/Navigation";
 import Login from "./components/pages/login/Login";
@@ -11,7 +11,7 @@ import ProductDatabase from "./components/pages/ProductDatabase";
 
 function App() {
     const [userName, setUserName] = useState(false);
-    console.log("App: " + userName)
+
     const userLogIn = (user) => {
       setUserName(user);
     }
@@ -19,20 +19,19 @@ function App() {
   return (
     <>
       <BrowserRouter>
-          <>
               <Container maxWidth="lg">
-              <Navigation username={userName}/>
-                <Switch>
-                    <Route exact path="/" component={Profile} />
-                    <Route exact path={LOG_IN}>
-                        <Login userLogIn={userLogIn}/>
-                    </Route>
-                    <Route exact path={PRODUCTS} component={Products}/>
-                    <Route exact path={DATABASE} component={ProductDatabase}/>
-                    <Route component={NotFound} />
-                </Switch>
+                  <CssBaseline />
+                  <Navigation username={userName}/>
+                    <Switch>
+                        <Route exact path={LOG_IN}>
+                            <Login userLogIn={userLogIn}/>
+                        </Route>
+                        <Route exact path="/" component={Profile} />
+                        <Route exact path={PRODUCTS} component={Products}/>
+                        <Route exact path={DATABASE} component={ProductDatabase}/>
+                        <Route component={NotFound} />
+                    </Switch>
               </Container>
-          </>
       </BrowserRouter>
     </>
   );

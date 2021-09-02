@@ -5,7 +5,7 @@ import {LOG_IN, PRODUCTS} from "../../constants/Route";
 import React, {useEffect, useState} from "react";
 import theme from "../../styles/theme";
 import {makeStyles} from "@material-ui/core/styles";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const styled= makeStyles(() => ({
     menuButton: {
@@ -18,7 +18,7 @@ const styled= makeStyles(() => ({
 }));
 
 function ButtonUserLogoutMenu( {username , isLogout}) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const [userName, setUserName] = useState(username);
     console.log("ButtonUser " + userName)
     const classes = styled();
@@ -39,6 +39,7 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
 
     return (
         <MenuItem>
+            { userName &&
             <Button
                 color = {'inherit'}
                 className = {classes.menuButton}
@@ -48,6 +49,21 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
             >
                 <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
             </Button>
+            }
+            { !userName &&
+            <Button
+                color = {'inherit'}
+                className = {classes.menuButton}
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+                component={NavLink}
+                to={LOG_IN}
+            >
+                <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
+            </Button>
+            }
+            {(userName) &&
             <Menu
                 id="simple-menu"
                 anchorEl={anchorEl}
@@ -56,9 +72,10 @@ function ButtonUserLogoutMenu( {username , isLogout}) {
                 onClose={handleClose}
             >
                 <MenuItem>
-                    <Button component={NavLink} to={LOG_IN}>Wyloguj</Button>
+                    <Button component={NavLink} to={LOG_IN} onClick={handleClick}>Wyloguj</Button>
                 </MenuItem>
             </Menu>
+            }
         </MenuItem>
     );
 }
