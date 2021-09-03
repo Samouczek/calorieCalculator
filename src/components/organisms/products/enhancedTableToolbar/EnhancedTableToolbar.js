@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PropTypes from "prop-types";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import theme from "../../../../styles/theme";
 import DeleteProducts from "../../../../data/DeleteProducts";
@@ -32,15 +32,25 @@ const useStyle = makeStyles(() => ({
             },
 }));
 
-export default function EnhancedTableToolbar({user,selected}){
+export default function EnhancedTableToolbar({user, selected, confirmRemoveYourProduct}){
+    const [numberDelete, setNumberDelete] = useState(0);
     const classes = useStyle();
     const  numSelected  = selected.length;
 
     const handleClickDeleteIcon = () =>{
+        setNumberDelete(prev => prev+1);
         selected.forEach(item => {
             DeleteProducts(user,item)
         })
     }
+
+
+    useEffect(()=>{
+        if (typeof confirmRemoveYourProduct === 'function') {
+            console.log("numberAdd: " + numberDelete);
+            confirmRemoveYourProduct(numberDelete);
+        }
+    },[numberDelete]);
 
     return (
         <Toolbar

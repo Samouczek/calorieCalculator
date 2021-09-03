@@ -11,7 +11,7 @@ import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
 import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
 
-export default function ProductForm({user, confirmNewProduct}) {
+export default function ProductForm({user,confirmNewProduct}) {
     const classes = StyleProductForm();
     const [name, setName] = useState(null);
     const [calories, setCalories] = useState(null);
@@ -19,24 +19,30 @@ export default function ProductForm({user, confirmNewProduct}) {
     const [carbohydrates, setCarbohydrates] = useState(null);
     const [fats, setFats] = useState(null);
     const [showAlert, setShowAlert] = useState(null);
+    const [numberAdd, setNumberAdd] = useState(0);
 
     const handleClick = (event) => {
         event.preventDefault();
         if (ValidationProductForm( name, calories, protein, carbohydrates, fats) === 0) {
             AddProductToDB(user, name, calories, protein, carbohydrates, fats);
             setShowAlert("Produkt został zapisany");
-            if (typeof confirmNewProduct === 'function') {
-                confirmNewProduct(true);
+            setNumberAdd(prev => prev+1);
                setName('');
                setCalories('');
                setProtein('');
                setCarbohydrates('');
                setFats('');
-            }
         } else {
             setShowAlert(ValidationProductForm(name, calories, protein, carbohydrates, fats));
         }
     }
+
+    useEffect(()=>{
+        if (typeof confirmNewProduct === 'function') {
+            console.log("numberAdd: " + numberAdd);
+            confirmNewProduct(numberAdd);
+        }
+    },[numberAdd]);
 
     return (
         <ThemeProvider theme={theme}>

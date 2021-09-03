@@ -17,7 +17,7 @@ import EnhancedTableToolbar from "../enhancedTableToolbar/EnhancedTableToolbar";
 import StyleProductTab from "./StyleProductTab";
 import theme from "../../../../styles/theme";
 
-export default function ProductsTab({user,rows}) {
+export default function ProductsTab({user,rows, confirmRemoveProduct}) {
     const classes = StyleProductTab();
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
@@ -83,7 +83,7 @@ export default function ProductsTab({user,rows}) {
         <div className={classes.root}>
             <ThemeProvider theme = {theme}>
             <Paper className={classes.paper}>
-                <EnhancedTableToolbar user={user} selected={selected} />
+                <EnhancedTableToolbar user={user} selected={selected} confirmRemoveYourProduct={confirmRemoveProduct}/>
                 <TableContainer>
                     <Table
                         className={classes.table}
