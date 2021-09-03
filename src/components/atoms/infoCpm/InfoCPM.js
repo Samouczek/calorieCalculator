@@ -12,8 +12,7 @@ export default function InfoCPM() {
     return (
         <Card className={classes.root}>
             <CardContent>
-                <Typography variant = "h6" component = "h2"
-                            className={classes.title} >
+                <Typography variant = "h6" component = "h2" className={classes.title} >
                     Całkowita przemiana materii (CPM)
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">

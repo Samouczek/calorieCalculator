@@ -3,9 +3,9 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import Checkbox from "@material-ui/core/Checkbox";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
+import {makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import {makeStyles} from "@material-ui/core/styles";
 
 const headCells = [
     { id: 'name', numeric: false, disablePadding: true, label: 'Nazwa' },

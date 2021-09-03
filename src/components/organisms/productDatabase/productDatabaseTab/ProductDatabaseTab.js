@@ -29,82 +29,78 @@ export default function ProductsTab({rows}) {
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(property);
     };
-
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-
     const handleChangeRowsPerPage = (event) => {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
-
     const handleChangeDense = (event) => {
         setDense(event.target.checked);
     };
-
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     return (
         <div className={classes.root}>
             <ThemeProvider theme = {theme}>
-            <Paper className={classes.paper}>
-                <EnhancedTableToolbar />
-                <TableContainer>
-                    <Table
-                        className={classes.table}
-                        aria-labelledby="tableTitle"
-                        size={dense ? 'small' : 'medium'}
-                        aria-label="enhanced table"
-                    >
-                        <EnhancedTableHead
-                            order={order}
-                            orderBy={orderBy}
-                            onRequestSort={handleRequestSort}
-                        />
-                        <TableBody>
-                            {stableSort(rows, getComparator(order, orderBy))
-                                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                                .map((row, index) => {
-                                    const labelId = `enhanced-table-checkbox-${index}`;
-                                    return (
-                                        <TableRow
-                                            key={row.name}
-                                        >
-                                            <TableCell padding="checkbox">
-                                            </TableCell>
-                                            <TableCell component="th" id={labelId} scope="row" padding="none">
-                                                {row.name}
-                                            </TableCell>
-                                            <TableCell align="right">{row.calories}</TableCell>
-                                            <TableCell align="right">{row.proteins}</TableCell>
-                                            <TableCell align="right">{row.carbs}</TableCell>
-                                            <TableCell align="right">{row.fats}</TableCell>
-                                        </TableRow>
-                                    );
-                                })}
-                            {emptyRows > 0 && (
-                                <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                                    <TableCell colSpan={6} />
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <TablePagination
-                    rowsPerPageOptions={[10, 20, 30]}
-                    component="div"
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
+                <Paper className={classes.paper}>
+                    <EnhancedTableToolbar />
+                    <TableContainer>
+                        <Table
+                            className={classes.table}
+                            aria-labelledby="tableTitle"
+                            size={dense ? 'small' : 'medium'}
+                            aria-label="enhanced table"
+                        >
+                            <EnhancedTableHead
+                                order={order}
+                                orderBy={orderBy}
+                                onRequestSort={handleRequestSort}
+                            />
+                            <TableBody>
+                                {stableSort(rows, getComparator(order, orderBy))
+                                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .map((row, index) => {
+                                        const labelId = `enhanced-table-checkbox-${index}`;
+                                        return (
+                                            <TableRow
+                                                key={row.name}
+                                            >
+                                                <TableCell padding="checkbox">
+                                                </TableCell>
+                                                <TableCell component="th" id={labelId} scope="row" padding="none">
+                                                    {row.name}
+                                                </TableCell>
+                                                <TableCell align="right">{row.calories}</TableCell>
+                                                <TableCell align="right">{row.proteins}</TableCell>
+                                                <TableCell align="right">{row.carbs}</TableCell>
+                                                <TableCell align="right">{row.fats}</TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                                {emptyRows > 0 && (
+                                    <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                                        <TableCell colSpan={6} />
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <TablePagination
+                        rowsPerPageOptions={[10, 20, 30]}
+                        component="div"
+                        count={rows.length}
+                        rowsPerPage={rowsPerPage}
+                        page={page}
+                        onPageChange={handleChangePage}
+                        onRowsPerPageChange={handleChangeRowsPerPage}
+                    />
+                </Paper>
+                <FormControlLabel
+                    control={<Switch checked={dense} onChange={handleChangeDense} />}
+                    label="Zmniejsz odstęp"
                 />
-            </Paper>
-            <FormControlLabel
-                control={<Switch checked={dense} onChange={handleChangeDense} />}
-                label="Zmniejsz odstęp"
-            />
             </ThemeProvider>
         </div>
     );

@@ -1,6 +1,5 @@
 import {db} from "../components/firebase";
 
-
 async function AddProductToDB(user, newName, newCalories, newProteins, newCarbs, newFats) {
     try {
         let product = {

@@ -6,10 +6,10 @@ import Button from '@material-ui/core/Button';
 import {Container} from "@material-ui/core";
 import { Alert } from '@material-ui/lab';
 import { ThemeProvider } from '@material-ui/core/styles';
+import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
 import AddProductToDB from "../../../../data/AddProductToDB";
 import theme from "../../../../styles/theme";
 import StyleProductForm from "./StyleProductForm";
-import ValidationProductForm from "../../../../logics/products/ValidationProductForm";
 
 export default function ProductForm({user,confirmNewProduct}) {
     const classes = StyleProductForm();
@@ -37,7 +37,7 @@ export default function ProductForm({user,confirmNewProduct}) {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (typeof confirmNewProduct === 'function') {
             console.log("numberAdd: " + numberAdd);
             confirmNewProduct(numberAdd);

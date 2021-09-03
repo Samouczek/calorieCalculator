@@ -1,15 +1,15 @@
-import Toolbar from "@material-ui/core/Toolbar";
 import clsx from "clsx";
+import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import {lighten, makeStyles} from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React, {useEffect, useState} from "react";
-import {lighten, makeStyles} from "@material-ui/core/styles";
-import theme from "../../../../styles/theme";
 import DeleteProducts from "../../../../data/DeleteProducts";
+import theme from "../../../../styles/theme";
 
 const useStyle = makeStyles(() => ({
     root: {
@@ -43,7 +43,6 @@ export default function EnhancedTableToolbar({user, selected, confirmRemoveYourP
             DeleteProducts(user,item)
         })
     }
-
 
     useEffect(()=>{
         if (typeof confirmRemoveYourProduct === 'function') {

@@ -1,10 +1,10 @@
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
-import {LOG_IN} from "../../constants/Route";
-import React, {useEffect, useState} from "react";
-import theme from "../../styles/theme";
 import {makeStyles} from "@material-ui/core/styles";
 import { NavLink} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {LOG_IN} from "../../constants/Route";
+import theme from "../../styles/theme";
 
 const styled= makeStyles(() => ({
     menuButton: {
@@ -36,34 +36,34 @@ function ButtonUserLogoutMenuMobile({username, isLogout}) {
         <>
             <MenuItem>
                 { userName &&
-                <Button
-                    color = {'inherit'}
-                    className = {classes.menuButton}
-                    aria-controls="simple-menu"
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                >
-                    <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
-                </Button>
+                    <Button
+                        color = {'inherit'}
+                        className = {classes.menuButton}
+                        aria-controls="simple-menu"
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                    >
+                        <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
+                    </Button>
                 }
                 { !userName &&
-                <Button
-                    color = {'inherit'}
-                    className = {classes.menuButton}
-                    aria-controls="simple-menu"
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                    component={NavLink}
-                    to={LOG_IN}
-                >
-                    <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
-                </Button>
+                    <Button
+                        color = {'inherit'}
+                        className = {classes.menuButton}
+                        aria-controls="simple-menu"
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                        component={NavLink}
+                        to={LOG_IN}
+                    >
+                        <i className = "material-icons">account_circle</i> { userName ? userName : 'Zaloguj' }
+                    </Button>
                 }
             </MenuItem>
             {(userName) &&
-            <MenuItem>
-                <Button component={NavLink} to={LOG_IN} onClick={handleClose}>Wyloguj</Button>
-            </MenuItem>
+                <MenuItem>
+                    <Button component={NavLink} to={LOG_IN} onClick={handleClose}>Wyloguj</Button>
+                </MenuItem>
             }
         </>
     );

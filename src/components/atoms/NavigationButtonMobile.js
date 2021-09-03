@@ -6,8 +6,8 @@ import {NavLink} from "react-router-dom";
 export default function NavigationButtonMobile({ title, pathApp }){
 
     return  (
-            <MenuItem>
-                <Button color="inherit" component={NavLink} to={pathApp}>{title}</Button>
-            </MenuItem>
-    );
+                <MenuItem>
+                    <Button color="inherit" component={NavLink} to={pathApp}>{title}</Button>
+                </MenuItem>
+            );
 }

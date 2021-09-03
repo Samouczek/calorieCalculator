@@ -4,6 +4,9 @@ import CalculateProteinCarboFat from "../../logics/profile/CalculateProteinCarbo
 import StyleResultCalcCpm from "./resultCalculateCpm/StyleResultCalcCpm";
 
 function DisplayMacronutrientsInCalcCpm({ cpmResult, bodyWeight, palValue }){
+    console.log(bodyWeight);
+    console.log(bodyWeight);
+    console.log(bodyWeight);
     const classes = StyleResultCalcCpm();
     const macronutrients = CalculateProteinCarboFat(cpmResult, bodyWeight, palValue);
 
