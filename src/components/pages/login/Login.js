@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {NavLink} from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import {ThemeProvider } from '@material-ui/core/styles';
@@ -8,12 +9,11 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import {Alert} from "@material-ui/lab";
 import Copyright from "../../organisms/Copyright";
+import ValidationLogin from "../../../logics/login/ValidationLogin";
 import theme from "../../../styles/theme";
 import StyleLogin from "./StyleLogin";
-import ValidationLogin from "../../../logics/login/ValidationLogin";
-import {Alert} from "@material-ui/lab";
-import {NavLink} from "react-router-dom";
 import { PROFILE} from "../../../constants/Route";
 
 function Login({userLogIn}) {
@@ -21,8 +21,7 @@ function Login({userLogIn}) {
     const [username, setUsername] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleSubmit = (event) => {
-       // event.preventDefault();
+    const handleSubmit = () => {
         if (ValidationLogin(username) === 0) {
             if (typeof userLogIn === 'function'){
                 userLogIn(username);

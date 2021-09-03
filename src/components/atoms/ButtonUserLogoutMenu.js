@@ -11,10 +11,6 @@ const styled= makeStyles(() => ({
     menuButton: {
         marginRight: theme.spacing(2),
     },
-    anchorLink: {
-        textDecoration: 'none',
-        color: theme.palette.common.black,
-    }
 }));
 
 function ButtonUserLogoutMenu( {username, isLogout}) {

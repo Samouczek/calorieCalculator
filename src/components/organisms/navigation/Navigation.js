@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {NavLink} from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,12 +8,12 @@ import Menu from '@material-ui/core/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
+import ButtonUserLogoutMenuMobile from "../../atoms/ButtonUserLogoutMenuMobile";
 import ButtonUserLogoutMenu from "../../atoms/ButtonUserLogoutMenu";
 import NavigationButtonMobile from "../../atoms/navigationButtonMobile/NavigationButtonMobile";
 import {DATABASE, PRODUCTS, PROFILE} from "../../../constants/Route";
 import theme from "../../../styles/theme";
 import StyleNavigation from "./StyleNavigation";
-import {NavLink} from "react-router-dom";
 
 export default function Navigation({username}) {
     const classes = StyleNavigation();
@@ -46,7 +47,7 @@ export default function Navigation({username}) {
             <NavigationButtonMobile title={'Profil'} pathApp={'/'}/>
             <NavigationButtonMobile title={'Produkty'} pathApp={PRODUCTS}/>
             <NavigationButtonMobile title={'Baza produktów'} pathApp={DATABASE}/>
-            <ButtonUserLogoutMenu username={logout} isLogout={handleUserLogout}/>
+            <ButtonUserLogoutMenuMobile username={logout} isLogout={handleUserLogout}/>
         </Menu>
     );
 
