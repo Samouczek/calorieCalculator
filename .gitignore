@@ -247,7 +247,7 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,webstorm
 
 package-lock.json
-/src/constants/process.env
+/.env
 /firestore.rules
 /firestore.indexes.json
 /firebase.json
